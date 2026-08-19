@@ -1,157 +1,354 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Challenges and Dilemmas in E-health</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenges and Dilemmas in E-health | Dr. Sabine Fonderson</title>
+  <meta name="description" content="Challenges and Dilemmas in E-health - Insights on healthcare, medical leadership, and clinical AI by Dr. Sabine Fonderson.">
+  <meta name="author" content="Dr. Sabine Fonderson">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --background: #f6f0e6;
+      --foreground: #303535;
+      --card: #fbf7ef;
+      --primary: #174a47;
+      --primary-hover: #2c625e;
+      --primary-foreground: #f6f0e6;
+      --accent: #c9785b;
+      --muted: #ece3d3;
+      --muted-foreground: #5f6b6a;
+      --border: #ddd0bb;
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0 auto;
-      width: 744px;
-      font-family: Source Serif Pro, serif;
-      line-height: 32px;
-      font-weight: 400;
-      color: rgba(0, 0, 0, 0.7);
-      font-size: 21px;
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      font-size: 1.125rem;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+      padding: 0;
     }
-    h1, h2, h3 {
-      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+
+    /* Sticky Editorial Header */
+    .article-header-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background-color: rgba(246, 240, 230, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    h1 a, h1 a:visited {
-      color: inherit;
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
-    h1 {
-      line-height: 48px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 42px;
-      margin: 32px 0 20px;
+
+    .back-link:hover {
+      color: var(--accent);
     }
-    h2 {
-      line-height: 32px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 26px;
-      margin: 28px 0;
-    }
-    h3 {
-      line-height: 28px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 21px;
-      margin: 24px 0;
-    }
-    p {
-      margin: 32px 0;
-    }
-    .created, .published {
-      color: rgba(0, 0, 0, 0.55);
-      font-size: 15px;
-      line-height: 15px;
-      margin: 20px 0;
-    }
-    .created + .published {
-      margin-top: -12px;
-    }
-    blockquote {
-      font-family: Georgia, Source Serif Pro, serif;
-      font-style: italic;
-      font-size: 24px;
-      line-height: 36px;
-      margin: 48px 120px;
-      text-align: center;
-    }
-    a {
-      word-wrap: break-word;
-      outline: none;
+
+    .header-cta {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      padding: 0.5rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
       text-decoration: none;
-      background-color: transparent;
-      border: 0;
-      color: #008CC9;
+      transition: all 0.2s ease;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .header-cta:hover {
+      background-color: var(--primary-hover);
     }
-    a:visited {
-      color: #8C68CB;
+
+    /* Article Container */
+    .article-container {
+      max-width: 760px;
+      margin: 3.5rem auto 6rem;
+      padding: 0 1.5rem;
     }
-    .center {
-      text-align: center;
+
+    /* Meta Info */
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
-    iframe {
-      display: block;
-      margin: 44px auto;
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background-color: rgba(201, 120, 91, 0.15);
+      color: var(--accent);
     }
-    *:not(pre) + pre, pre:first-of-type {
-      margin-top: 32px;
-      padding-top: 32px;
+
+    .article-date {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
     }
-    pre:only-of-type {
-      margin: 32px 0;
-      padding: 32px;
+
+    /* Main Title */
+    .article-main-title {
+      font-family: var(--font-serif);
+      font-size: 2.35rem;
+      line-height: 1.25;
+      color: var(--foreground);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
-    pre {
-      background: #F3F6F8;
-      overflow-x: auto;
-      display: block;
-      font-size: 13px;
-      font-family: monospace;
-      line-height: 13px;
-      padding: 0 32px 32px;
-      white-space: pre;
+
+    @media (min-width: 768px) {
+      .article-main-title {
+        font-size: 2.85rem;
+      }
     }
-    a.embedded {
-      background: #F3F6F8;
-      display: block;
-      padding: 32px;
-      margin: 32px 0;
+
+    .author-byline {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
     }
-    img {
-      height: auto;
-      max-width: 100%;
-    }
-    .slate-image-embed__resize-full-width img {
-      width: 100%;
-    }
-    .series-logo {
+
+    .author-img {
       width: 48px;
       height: 48px;
-      box-sizing: border-box;
-      background-clip: content-box;
-      border: 4px solid transparent;
-      border-radius: 6px;
-      object-fit: scale-down;
-      float: left;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
     }
-    .series-title {
-      font-size: 16px;
-      font-weight: 600;
-      vertical-align: top;
+
+    .author-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--foreground);
     }
-    .series-description {
-      color: rgba(0,0,0,.6);
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 20px;
+
+    .author-role {
+      font-size: 0.825rem;
+      color: var(--muted-foreground);
     }
-    div {
-      margin: 32px 0;
+
+    /* Content Typography */
+    .article-content {
+      color: var(--foreground);
+    }
+
+    .article-content p {
+      margin-bottom: 1.65rem;
+      color: #373f3e;
+      font-size: 1.125rem;
+      line-height: 1.85;
+    }
+
+    .article-content h1, 
+    .article-content h2, 
+    .article-content h3 {
+      font-family: var(--font-serif);
+      color: var(--foreground);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .article-content h2 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h3 {
+      font-size: 1.4rem;
+    }
+
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    .article-content ul, 
+    .article-content ol {
+      margin-bottom: 1.75rem;
+      padding-left: 1.75rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.65rem;
+      color: #373f3e;
+    }
+
+    .article-content a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .article-content a:hover {
+      color: var(--accent);
+    }
+
+    /* Author Footer Card */
+    .author-footer-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.25rem;
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .author-footer-card {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .author-footer-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      flex-shrink: 0;
+    }
+
+    .author-footer-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--foreground);
+      margin-bottom: 0.35rem;
+    }
+
+    .author-footer-bio {
+      font-size: 0.9rem;
+      color: var(--muted-foreground);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .author-footer-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--foreground);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
     }
   </style>
 </head>
 <body>
-    <img src="https://media.licdn.com/mediaC5612AQHyQ2x_u8wwWg" alt="" title="" />
-      <h1><a href="https://www.linkedin.com/pulse/challenges-dilemmas-e-health-sabine-fonderson">Challenges and Dilemmas in E-health</a></h1>
-    <p class="created">Created on 2018-01-28 03:20</p>
-  <p class="published">Published on 2018-01-28 03:41</p>
+
+  <!-- Top Bar -->
+  <div class="article-header-bar">
+    <a href="../index.html#articles" class="back-link">
+      &larr; Back to Dr. Sabine Fonderson Portfolio
+    </a>
+    <a href="../index.html#book" class="header-cta">
+      Book Sabine for Speaking
+    </a>
+  </div>
+
+  <!-- Main Article Body -->
+  <main class="article-container">
+    <div class="article-meta-row">
+      <span class="badge">Digital Health</span>
+      <span class="article-date">2025</span>
+    </div>
+
+    <h1 class="article-main-title">Challenges and Dilemmas in E-health</h1>
+
+    <div class="author-byline">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-img">
+      <div>
+        <p class="author-name">Dr. Sabine Fonderson</p>
+        <p class="author-role">Physician · Health AI Innovator · Keynote Speaker</p>
+      </div>
+    </div>
+
+    <article class="article-content">
+      <img src="https://media.licdn.com/mediaC5612AQHyQ2x_u8wwWg" alt="" title=""></img>
+      
+    <p>Created on 2018-01-28 03:20</p>
+  <p>Published on 2018-01-28 03:41</p>
   <div>
   <p>Hemingway professional governance hosted a forum on Friday 26th of January. It was situated in Utrecht, also known as the ‘beating heart’ of the Netherlands. This was an exclusive platform in which regulators in different sectors (healthcare, non-profit, parliament and pharmaceuticals) shared ideas and opinions on what I would summarise as a SWOT (strengths, weakness, opportunities and threats) analysis on technological innovations in healthcare. </p> 
   <p>A few months prior to this event, I had just launched an e-health platform so naturally I was exhilarated when my registration to attend was confirmed. The forum met all my expectations and I left there with an abundance of knowledge and clear strategy on how to tackle the next steps for my e-health startup. </p> 
   <p>Below are the top 6 challenges and lessons I learned from a panel of experts whose job it is to make decisions and risks for the benefit of others.</p> 
   <ol> 
-   <li><strong>It is time to stop with innovation and start implementing</strong>. There are many examples of innovations around the world and the most striking example that was provided by guest speaker Mark van Houdenhoven was that of the late Dr. V (Venkastaswamy) founder of Aravind Eye Hospital in 1977. His vision was simple, to eradicate needless blindness, his innovation was in surgical processes and the implementation was through mass marketing within his network. Innovation is not always about doing something new. &nbsp;Dr. V did not necessarily come up with new ways to treat cataract. What he did do was implement his vision without which he would not have created the largest network of eye clinics in the world and serve nearly 50% of all eye surgeries in India (Ref. Wikipedia).</li> 
+   <li><strong>It is time to stop with innovation and start implementing</strong>. There are many examples of innovations around the world and the most striking example that was provided by guest speaker Mark van Houdenhoven was that of the late Dr. V (Venkastaswamy) founder of Aravind Eye Hospital in 1977. His vision was simple, to eradicate needless blindness, his innovation was in surgical processes and the implementation was through mass marketing within his network. Innovation is not always about doing something new.  Dr. V did not necessarily come up with new ways to treat cataract. What he did do was implement his vision without which he would not have created the largest network of eye clinics in the world and serve nearly 50% of all eye surgeries in India (Ref. Wikipedia).</li> 
    <li><strong>Innovations in healthcare is not about the newest software application. </strong>E-health innovation is about ways in which it benefits society as a whole, adds value to the people who will use it and be readily available or accessible. If people do not know about an innovation, then they will not be able to use it.</li> 
    <li><strong>E-health applications give us the opportunities to do things from a distance</strong>. One of the challenges regulators face is the speed in which technological changes are advancing. Keeping up with these trends is becoming more complex. Changing the mindset and bridging the generation gap will allow healthcare regulators to better perceive risks in e-health innovations.</li> 
    <li><strong>There is already major development in e-health.</strong> Consumers are increasingly engaging in their own health. Due to the shift of value-based healthcare there is more pressure on various stakeholders to lower costs. Although connectivity and digital healthcare is shifting value from devices to software and services, healthcare today is better but not necessarily more efficient. The continuum of healthcare delivery from hospital to home remains challenging. E-health should be seen as a tool that links various factors of healthcare together with the patient remaining in control and central within the entire journey.</li> 
-   <li><strong>Current healthcare systems are probably no longer designed to deliver the best care to patients</strong>. In the digital age, it is hard to measure success. We are currently living in a ‘do-it-yourself’ world and it should not come as a surprise that ‘how to’ videos rank very high as most popular categories on social media channels. &nbsp;In the current age, patients want answers, want to be knowledgeable and want to be in control of their own health journey. </li> 
+   <li><strong>Current healthcare systems are probably no longer designed to deliver the best care to patients</strong>. In the digital age, it is hard to measure success. We are currently living in a ‘do-it-yourself’ world and it should not come as a surprise that ‘how to’ videos rank very high as most popular categories on social media channels.  In the current age, patients want answers, want to be knowledgeable and want to be in control of their own health journey. </li> 
   </ol> 
   <blockquote>
     "This is a system that is going to 
@@ -165,5 +362,23 @@
   <p><br></p>
  
 </div>
+    </article>
+
+    <!-- Author Callout Box -->
+    <div class="author-footer-card">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-footer-img">
+      <div>
+        <h3 class="author-footer-title">About Dr. Sabine Fonderson</h3>
+        <p class="author-footer-bio">
+          Practising General Practitioner (Rotterdam), Health AI developer, and international keynote speaker delivering unfiltered talks on clinical AI, patient safety, and medical leadership.
+        </p>
+        <div class="author-footer-ctas">
+          <a href="../index.html#book" class="btn btn-primary">Book for Speaking &rarr;</a>
+          <a href="https://ai.drfonderson.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore AI Tools &nearr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
 </body>
 </html>

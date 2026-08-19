@@ -1,153 +1,368 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>How I Went From Building Websites in Dreamweaver to Coding a Tool for GPs Like Me.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How I Went From Building Websites in Dreamweaver to Coding a Tool for GPs Like Me. | Dr. Sabine Fonderson</title>
+  <meta name="description" content="How I Went From Building Websites in Dreamweaver to Coding a Tool for GPs Like Me. - Insights on healthcare, medical leadership, and clinical AI by Dr. Sabine Fonderson.">
+  <meta name="author" content="Dr. Sabine Fonderson">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --background: #f6f0e6;
+      --foreground: #303535;
+      --card: #fbf7ef;
+      --primary: #174a47;
+      --primary-hover: #2c625e;
+      --primary-foreground: #f6f0e6;
+      --accent: #c9785b;
+      --muted: #ece3d3;
+      --muted-foreground: #5f6b6a;
+      --border: #ddd0bb;
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0 auto;
-      width: 744px;
-      font-family: Source Serif Pro, serif;
-      line-height: 32px;
-      font-weight: 400;
-      color: rgba(0, 0, 0, 0.7);
-      font-size: 21px;
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      font-size: 1.125rem;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+      padding: 0;
     }
-    h1, h2, h3 {
-      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+
+    /* Sticky Editorial Header */
+    .article-header-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background-color: rgba(246, 240, 230, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    h1 a, h1 a:visited {
-      color: inherit;
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
-    h1 {
-      line-height: 48px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 42px;
-      margin: 32px 0 20px;
+
+    .back-link:hover {
+      color: var(--accent);
     }
-    h2 {
-      line-height: 32px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 26px;
-      margin: 28px 0;
-    }
-    h3 {
-      line-height: 28px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 21px;
-      margin: 24px 0;
-    }
-    p {
-      margin: 32px 0;
-    }
-    .created, .published {
-      color: rgba(0, 0, 0, 0.55);
-      font-size: 15px;
-      line-height: 15px;
-      margin: 20px 0;
-    }
-    .created + .published {
-      margin-top: -12px;
-    }
-    blockquote {
-      font-family: Georgia, Source Serif Pro, serif;
-      font-style: italic;
-      font-size: 24px;
-      line-height: 36px;
-      margin: 48px 120px;
-      text-align: center;
-    }
-    a {
-      word-wrap: break-word;
-      outline: none;
+
+    .header-cta {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      padding: 0.5rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
       text-decoration: none;
-      background-color: transparent;
-      border: 0;
-      color: #008CC9;
+      transition: all 0.2s ease;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .header-cta:hover {
+      background-color: var(--primary-hover);
     }
-    a:visited {
-      color: #8C68CB;
+
+    /* Article Container */
+    .article-container {
+      max-width: 760px;
+      margin: 3.5rem auto 6rem;
+      padding: 0 1.5rem;
     }
-    .center {
-      text-align: center;
+
+    /* Meta Info */
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
-    iframe {
-      display: block;
-      margin: 44px auto;
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background-color: rgba(201, 120, 91, 0.15);
+      color: var(--accent);
     }
-    *:not(pre) + pre, pre:first-of-type {
-      margin-top: 32px;
-      padding-top: 32px;
+
+    .article-date {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
     }
-    pre:only-of-type {
-      margin: 32px 0;
-      padding: 32px;
+
+    /* Main Title */
+    .article-main-title {
+      font-family: var(--font-serif);
+      font-size: 2.35rem;
+      line-height: 1.25;
+      color: var(--foreground);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
-    pre {
-      background: #F3F6F8;
-      overflow-x: auto;
-      display: block;
-      font-size: 13px;
-      font-family: monospace;
-      line-height: 13px;
-      padding: 0 32px 32px;
-      white-space: pre;
+
+    @media (min-width: 768px) {
+      .article-main-title {
+        font-size: 2.85rem;
+      }
     }
-    a.embedded {
-      background: #F3F6F8;
-      display: block;
-      padding: 32px;
-      margin: 32px 0;
+
+    .author-byline {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
     }
-    img {
-      height: auto;
-      max-width: 100%;
-    }
-    .slate-image-embed__resize-full-width img {
-      width: 100%;
-    }
-    .series-logo {
+
+    .author-img {
       width: 48px;
       height: 48px;
-      box-sizing: border-box;
-      background-clip: content-box;
-      border: 4px solid transparent;
-      border-radius: 6px;
-      object-fit: scale-down;
-      float: left;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
     }
-    .series-title {
-      font-size: 16px;
-      font-weight: 600;
-      vertical-align: top;
+
+    .author-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--foreground);
     }
-    .series-description {
-      color: rgba(0,0,0,.6);
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 20px;
+
+    .author-role {
+      font-size: 0.825rem;
+      color: var(--muted-foreground);
     }
-    div {
-      margin: 32px 0;
+
+    /* Content Typography */
+    .article-content {
+      color: var(--foreground);
+    }
+
+    .article-content p {
+      margin-bottom: 1.65rem;
+      color: #373f3e;
+      font-size: 1.125rem;
+      line-height: 1.85;
+    }
+
+    .article-content h1, 
+    .article-content h2, 
+    .article-content h3 {
+      font-family: var(--font-serif);
+      color: var(--foreground);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .article-content h2 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h3 {
+      font-size: 1.4rem;
+    }
+
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    .article-content ul, 
+    .article-content ol {
+      margin-bottom: 1.75rem;
+      padding-left: 1.75rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.65rem;
+      color: #373f3e;
+    }
+
+    .article-content a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .article-content a:hover {
+      color: var(--accent);
+    }
+
+    /* Author Footer Card */
+    .author-footer-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.25rem;
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .author-footer-card {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .author-footer-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      flex-shrink: 0;
+    }
+
+    .author-footer-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--foreground);
+      margin-bottom: 0.35rem;
+    }
+
+    .author-footer-bio {
+      font-size: 0.9rem;
+      color: var(--muted-foreground);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .author-footer-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--foreground);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
     }
   </style>
 </head>
 <body>
-    <img class="series-logo" src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY" />
+
+  <!-- Top Bar -->
+  <div class="article-header-bar">
+    <a href="../index.html#articles" class="back-link">
+      &larr; Back to Dr. Sabine Fonderson Portfolio
+    </a>
+    <a href="../index.html#book" class="header-cta">
+      Book Sabine for Speaking
+    </a>
+  </div>
+
+  <!-- Main Article Body -->
+  <main class="article-container">
+    <div class="article-meta-row">
+      <span class="badge">AI & Clinical Tech</span>
+      <span class="article-date">2025</span>
+    </div>
+
+    <h1 class="article-main-title">How I Went From Building Websites in Dreamweaver to Coding a Tool for GPs Like Me.</h1>
+
+    <div class="author-byline">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-img">
+      <div>
+        <p class="author-name">Dr. Sabine Fonderson</p>
+        <p class="author-role">Physician · Health AI Innovator · Keynote Speaker</p>
+      </div>
+    </div>
+
+    <article class="article-content">
+      <img src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY"></img>
     <h3>
-      <span class="series-title">The real doctor </span>
+      <span>The real doctor </span>
       </br>
-      <span class="series-description">Helping doctors rebuild their careers after immigration.</span>
+      <span>Helping doctors rebuild their careers after immigration.</span>
     </h3>
-    <img src="https://media.licdn.com/mediaD4E12AQEx4Qhm7zwSrQ" alt="" title="" />
-      <h1><a href="https://www.linkedin.com/pulse/how-i-went-from-building-websites-dreamweaver-coding-tool-fonderson-p9une">How I Went From Building Websites in Dreamweaver to Coding a Tool for GPs Like Me.</a></h1>
-    <p class="created">Created on 2025-05-14 21:20</p>
-  <p class="published">Published on 2025-05-15 08:30</p>
-  <div><p>It’s been over 25 years since my tech journey. I created my first website with Dreamweaver, and I still remember the elation of getting a banner with snowflakes to appear just the way I wanted. </p><p>In my final years of medical school, building websites became a side-hustle. Part fun, part freelance.</p><p>Technology has come a long way. Today, websites can be made in minutes by dragging and dropping elements. The magic of writing code line by line began to fade, especially once I started working full-time in UK emergency departments.</p><p>Then came a shift. I moved to the Netherlands, trained as a general practitioner, and pursued a PhD. During my research years, I coded again. This time, it was R. Hours and days spent writing syntax to generate the perfect graph for publication. That same obsession returned, but now with purpose.</p><p>Today, as a GP practice owner working in a <strong>second language</strong>, I’ve found my sweet spot again: building tools that make clinical life more efficient, more accurate, and genuinely enjoyable. Because I truly enjoy coding and seeing the outcome come to life in something that directly supports patient care.</p><blockquote><p>It’s been just over a year in this role, and no, I’m not burned out. I enjoy what I do. But I’ve noticed one thing: safety-net advice matters. <strong>A lot.</strong></p></blockquote><p>In my practice, we give this advice all day, hundreds of times, for common complaints. And in a high-pressure setting, it made sense to create a tool that would support a uniform, time-saving approach. Not to replace thinking, but to reduce the margin for error and free up time for the patients still waiting in the queue.</p><p>The moment of clarity came when a colleague couldn’t make it to work. I had to step in, and for one day, I became the <strong>nurse assistant.</strong></p><p>That day was eye-opening.</p><p>I answered all the incoming patient calls. I experienced the back-to-back phone conversations, the task-switching every few minutes, the assumption from callers that we’d somehow know their needs before they finished saying hello.</p><p>By 8:25, the phone queue had 12 people waiting. My first 45 minutes included everything from home visit demands to holiday medication requests, a dementia patient who forgot his results, a worried mother, and a two-day cough that must be serious.</p><p>All of this, plus lab results, prescription refills, inbox messages, and emails with mystery skin photos.</p><p>The calls needed to be short, efficient, and still respectful, with clear safety-net advice at the end. That’s when it really hit me. My nurse assistants do this all day, and most of them say the right things, but often don’t write them down.</p><p>That’s a documentation risk.</p><p>So I built a solution.</p><p>The <strong>GP Smart Plan Tool</strong> is a browser-based extension that helps me and my team instantly find ready-to-use safety-net advice in Dutch and English. It is designed for nurse assistants, medical students, junior doctors, and busy GPs. It is simple, fast, and focused on non-complex, high-volume cases.</p><p>Here’s where things currently stand.</p><p>I submitted the Chrome extension to the<strong> Google Web Store</strong>. The first version was rejected because of how permissions were set in the code. I fixed those issues, removed unnecessary data access, and resubmitted a cleaned-up version. I am now waiting for <strong>final approval</strong>.</p><p>Once approved, I’ll share the live link so you can try it.</p><p><strong>In the meantime, here are ten questions I’ve received and how I’ve answered them.</strong></p><ol><li><p><strong>How does this work?</strong> You type a keyword like “headache” or “rash” and the tool suggests a safety-net phrase you can copy into your notes or patient instructions.</p></li><li><p><strong>Is it evidence-based?</strong> Yes. It’s based on GP guidelines and phrasing used in real-world Dutch and UK consultations.</p></li><li><p><strong>Is it just for straightforward cases?</strong> Exactly. It’s made for standard complaints where the risk is in rushing the advice or skipping documentation.</p></li><li><p><strong>Can I edit the advice?</strong> Yes. You can copy and edit freely. A premium version is in development that allows saving your own custom phrases.</p></li><li><p><strong>Is it bilingual?</strong> Yes. Most content is available in both Dutch and English.</p></li><li><p><strong>Does it save time?</strong> Yes, by avoiding repetitive typing.</p></li><li><p><strong>What if I can’t install Chrome extensions at work?</strong> A downloadable version is also in development for those working in restricted environments.</p></li><li><p><strong>Can students and nurse assistants use this?</strong> Yes, with supervision. It supports learning and consistency but doesn’t replace clinical reasoning.</p></li><li><p><strong>Is it really free?</strong> Yes. The base version will remain free. A paid upgrade will offer more customization and ICPC integration.</p></li><li><p><strong>Why trust a GP with tech skills?</strong> Because this was built inside real consultations, not in a tech company. I live the challenges this tool is designed to solve.</p></li></ol><p>Here are screenshots of the demo version. In the next update, I will share a full walkthrough once the extension is approved.</p><p></p><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQElcHFMXyHp3g" src="https://media.licdn.com/dms/image/v2/D4E12AQElcHFMXyHp3g/article-inline_image-shrink_400_744/B4EZbQxfklGkAY-/0/1747259357946?e=1787788800&amp;v=beta&amp;t=_L4m6iZgbxp1yqwcL0nhYT4_XkIcDO_gA2O4YqEvlJY"><figcaption>Start typing and see the condition of your choice</figcaption></figure><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQGwX1V6-WcL4g" src="https://media.licdn.com/dms/image/v2/D4E12AQGwX1V6-WcL4g/article-inline_image-shrink_1000_1488/B4EZbQxpIkGkAQ-/0/1747259397124?e=1787788800&amp;v=beta&amp;t=YbsSc9V9dZSug4p_rIW7IFI3woY93USGcTuX_K4dxlg"><figcaption>A safety-net plan for a patient with uncomplicated sore throat</figcaption></figure><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQFLvcBx5sOH8w" src="https://media.licdn.com/dms/image/v2/D4E12AQFLvcBx5sOH8w/article-inline_image-shrink_1500_2232/B4EZbQyJejGQAU-/0/1747259529585?e=1787788800&amp;v=beta&amp;t=dD5_xxP5WDvkM9ds49LT5MSnW-WUoYZaFMADqaU3LYk"><figcaption>A safety-net for a patient with mild anxiety</figcaption></figure><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQEjH8SwVNWOZw" src="https://media.licdn.com/dms/image/v2/D4E12AQEjH8SwVNWOZw/article-inline_image-shrink_1000_1488/B4EZbQzOtNHcAQ-/0/1747259813320?e=1787788800&amp;v=beta&amp;t=eHu873rdnLX77RiRWq5vxaB7vtC_wSkw9gp5z84oHOc"><figcaption>Behind the scenes code in Visual Studio </figcaption></figure><p>If you're curious about the concept or want to be notified when it goes live then stay subscribed.</p><p>Was this helpful, interesting, or worth a follow-up? I’d love your feedback. It helps me shape what comes next.</p></div>
+    <img src="https://media.licdn.com/mediaD4E12AQEx4Qhm7zwSrQ" alt="" title=""></img>
+      
+    <p>Created on 2025-05-14 21:20</p>
+  <p>Published on 2025-05-15 08:30</p>
+  <div><p>It’s been over 25 years since my tech journey. I created my first website with Dreamweaver, and I still remember the elation of getting a banner with snowflakes to appear just the way I wanted. </p><p>In my final years of medical school, building websites became a side-hustle. Part fun, part freelance.</p><p>Technology has come a long way. Today, websites can be made in minutes by dragging and dropping elements. The magic of writing code line by line began to fade, especially once I started working full-time in UK emergency departments.</p><p>Then came a shift. I moved to the Netherlands, trained as a general practitioner, and pursued a PhD. During my research years, I coded again. This time, it was R. Hours and days spent writing syntax to generate the perfect graph for publication. That same obsession returned, but now with purpose.</p><p>Today, as a GP practice owner working in a <strong>second language</strong>, I’ve found my sweet spot again: building tools that make clinical life more efficient, more accurate, and genuinely enjoyable. Because I truly enjoy coding and seeing the outcome come to life in something that directly supports patient care.</p><blockquote><p>It’s been just over a year in this role, and no, I’m not burned out. I enjoy what I do. But I’ve noticed one thing: safety-net advice matters. <strong>A lot.</strong></p></blockquote><p>In my practice, we give this advice all day, hundreds of times, for common complaints. And in a high-pressure setting, it made sense to create a tool that would support a uniform, time-saving approach. Not to replace thinking, but to reduce the margin for error and free up time for the patients still waiting in the queue.</p><p>The moment of clarity came when a colleague couldn’t make it to work. I had to step in, and for one day, I became the <strong>nurse assistant.</strong></p><p>That day was eye-opening.</p><p>I answered all the incoming patient calls. I experienced the back-to-back phone conversations, the task-switching every few minutes, the assumption from callers that we’d somehow know their needs before they finished saying hello.</p><p>By 8:25, the phone queue had 12 people waiting. My first 45 minutes included everything from home visit demands to holiday medication requests, a dementia patient who forgot his results, a worried mother, and a two-day cough that must be serious.</p><p>All of this, plus lab results, prescription refills, inbox messages, and emails with mystery skin photos.</p><p>The calls needed to be short, efficient, and still respectful, with clear safety-net advice at the end. That’s when it really hit me. My nurse assistants do this all day, and most of them say the right things, but often don’t write them down.</p><p>That’s a documentation risk.</p><p>So I built a solution.</p><p>The <strong>GP Smart Plan Tool</strong> is a browser-based extension that helps me and my team instantly find ready-to-use safety-net advice in Dutch and English. It is designed for nurse assistants, medical students, junior doctors, and busy GPs. It is simple, fast, and focused on non-complex, high-volume cases.</p><p>Here’s where things currently stand.</p><p>I submitted the Chrome extension to the<strong> Google Web Store</strong>. The first version was rejected because of how permissions were set in the code. I fixed those issues, removed unnecessary data access, and resubmitted a cleaned-up version. I am now waiting for <strong>final approval</strong>.</p><p>Once approved, I’ll share the live link so you can try it.</p><p><strong>In the meantime, here are ten questions I’ve received and how I’ve answered them.</strong></p><ol><li><p><strong>How does this work?</strong> You type a keyword like “headache” or “rash” and the tool suggests a safety-net phrase you can copy into your notes or patient instructions.</p></li><li><p><strong>Is it evidence-based?</strong> Yes. It’s based on GP guidelines and phrasing used in real-world Dutch and UK consultations.</p></li><li><p><strong>Is it just for straightforward cases?</strong> Exactly. It’s made for standard complaints where the risk is in rushing the advice or skipping documentation.</p></li><li><p><strong>Can I edit the advice?</strong> Yes. You can copy and edit freely. A premium version is in development that allows saving your own custom phrases.</p></li><li><p><strong>Is it bilingual?</strong> Yes. Most content is available in both Dutch and English.</p></li><li><p><strong>Does it save time?</strong> Yes, by avoiding repetitive typing.</p></li><li><p><strong>What if I can’t install Chrome extensions at work?</strong> A downloadable version is also in development for those working in restricted environments.</p></li><li><p><strong>Can students and nurse assistants use this?</strong> Yes, with supervision. It supports learning and consistency but doesn’t replace clinical reasoning.</p></li><li><p><strong>Is it really free?</strong> Yes. The base version will remain free. A paid upgrade will offer more customization and ICPC integration.</p></li><li><p><strong>Why trust a GP with tech skills?</strong> Because this was built inside real consultations, not in a tech company. I live the challenges this tool is designed to solve.</p></li></ol><p>Here are screenshots of the demo version. In the next update, I will share a full walkthrough once the extension is approved.</p><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQElcHFMXyHp3g" src="https://media.licdn.com/dms/image/v2/D4E12AQElcHFMXyHp3g/article-inline_image-shrink_400_744/B4EZbQxfklGkAY-/0/1747259357946?e=1787788800&v=beta&t=_L4m6iZgbxp1yqwcL0nhYT4_XkIcDO_gA2O4YqEvlJY"><figcaption>Start typing and see the condition of your choice</figcaption></figure><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQGwX1V6-WcL4g" src="https://media.licdn.com/dms/image/v2/D4E12AQGwX1V6-WcL4g/article-inline_image-shrink_1000_1488/B4EZbQxpIkGkAQ-/0/1747259397124?e=1787788800&v=beta&t=YbsSc9V9dZSug4p_rIW7IFI3woY93USGcTuX_K4dxlg"><figcaption>A safety-net plan for a patient with uncomplicated sore throat</figcaption></figure><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQFLvcBx5sOH8w" src="https://media.licdn.com/dms/image/v2/D4E12AQFLvcBx5sOH8w/article-inline_image-shrink_1500_2232/B4EZbQyJejGQAU-/0/1747259529585?e=1787788800&v=beta&t=dD5_xxP5WDvkM9ds49LT5MSnW-WUoYZaFMADqaU3LYk"><figcaption>A safety-net for a patient with mild anxiety</figcaption></figure><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQEjH8SwVNWOZw" src="https://media.licdn.com/dms/image/v2/D4E12AQEjH8SwVNWOZw/article-inline_image-shrink_1000_1488/B4EZbQzOtNHcAQ-/0/1747259813320?e=1787788800&v=beta&t=eHu873rdnLX77RiRWq5vxaB7vtC_wSkw9gp5z84oHOc"><figcaption>Behind the scenes code in Visual Studio </figcaption></figure><p>If you're curious about the concept or want to be notified when it goes live then stay subscribed.</p><p>Was this helpful, interesting, or worth a follow-up? I’d love your feedback. It helps me shape what comes next.</p></div>
+    </article>
+
+    <!-- Author Callout Box -->
+    <div class="author-footer-card">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-footer-img">
+      <div>
+        <h3 class="author-footer-title">About Dr. Sabine Fonderson</h3>
+        <p class="author-footer-bio">
+          Practising General Practitioner (Rotterdam), Health AI developer, and international keynote speaker delivering unfiltered talks on clinical AI, patient safety, and medical leadership.
+        </p>
+        <div class="author-footer-ctas">
+          <a href="../index.html#book" class="btn btn-primary">Book for Speaking &rarr;</a>
+          <a href="https://ai.drfonderson.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore AI Tools &nearr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
 </body>
 </html>

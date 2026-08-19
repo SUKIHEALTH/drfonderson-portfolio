@@ -1,155 +1,368 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>The 25-Month Wait: Why We Can't Let Immigrant Doctors' Talent Go to Waste
-</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 25-Month Wait: Why We Can't Let Immigrant Doctors' Talent Go to Waste | Dr. Sabine Fonderson</title>
+  <meta name="description" content="The 25-Month Wait: Why We Can't Let Immigrant Doctors' Talent Go to Waste - Insights on healthcare, medical leadership, and clinical AI by Dr. Sabine Fonderson.">
+  <meta name="author" content="Dr. Sabine Fonderson">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --background: #f6f0e6;
+      --foreground: #303535;
+      --card: #fbf7ef;
+      --primary: #174a47;
+      --primary-hover: #2c625e;
+      --primary-foreground: #f6f0e6;
+      --accent: #c9785b;
+      --muted: #ece3d3;
+      --muted-foreground: #5f6b6a;
+      --border: #ddd0bb;
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0 auto;
-      width: 744px;
-      font-family: Source Serif Pro, serif;
-      line-height: 32px;
-      font-weight: 400;
-      color: rgba(0, 0, 0, 0.7);
-      font-size: 21px;
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      font-size: 1.125rem;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+      padding: 0;
     }
-    h1, h2, h3 {
-      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+
+    /* Sticky Editorial Header */
+    .article-header-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background-color: rgba(246, 240, 230, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    h1 a, h1 a:visited {
-      color: inherit;
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
-    h1 {
-      line-height: 48px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 42px;
-      margin: 32px 0 20px;
+
+    .back-link:hover {
+      color: var(--accent);
     }
-    h2 {
-      line-height: 32px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 26px;
-      margin: 28px 0;
-    }
-    h3 {
-      line-height: 28px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 21px;
-      margin: 24px 0;
-    }
-    p {
-      margin: 32px 0;
-    }
-    .created, .published {
-      color: rgba(0, 0, 0, 0.55);
-      font-size: 15px;
-      line-height: 15px;
-      margin: 20px 0;
-    }
-    .created + .published {
-      margin-top: -12px;
-    }
-    blockquote {
-      font-family: Georgia, Source Serif Pro, serif;
-      font-style: italic;
-      font-size: 24px;
-      line-height: 36px;
-      margin: 48px 120px;
-      text-align: center;
-    }
-    a {
-      word-wrap: break-word;
-      outline: none;
+
+    .header-cta {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      padding: 0.5rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
       text-decoration: none;
-      background-color: transparent;
-      border: 0;
-      color: #008CC9;
+      transition: all 0.2s ease;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .header-cta:hover {
+      background-color: var(--primary-hover);
     }
-    a:visited {
-      color: #8C68CB;
+
+    /* Article Container */
+    .article-container {
+      max-width: 760px;
+      margin: 3.5rem auto 6rem;
+      padding: 0 1.5rem;
     }
-    .center {
-      text-align: center;
+
+    /* Meta Info */
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
-    iframe {
-      display: block;
-      margin: 44px auto;
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background-color: rgba(201, 120, 91, 0.15);
+      color: var(--accent);
     }
-    *:not(pre) + pre, pre:first-of-type {
-      margin-top: 32px;
-      padding-top: 32px;
+
+    .article-date {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
     }
-    pre:only-of-type {
-      margin: 32px 0;
-      padding: 32px;
+
+    /* Main Title */
+    .article-main-title {
+      font-family: var(--font-serif);
+      font-size: 2.35rem;
+      line-height: 1.25;
+      color: var(--foreground);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
-    pre {
-      background: #F3F6F8;
-      overflow-x: auto;
-      display: block;
-      font-size: 13px;
-      font-family: monospace;
-      line-height: 13px;
-      padding: 0 32px 32px;
-      white-space: pre;
+
+    @media (min-width: 768px) {
+      .article-main-title {
+        font-size: 2.85rem;
+      }
     }
-    a.embedded {
-      background: #F3F6F8;
-      display: block;
-      padding: 32px;
-      margin: 32px 0;
+
+    .author-byline {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
     }
-    img {
-      height: auto;
-      max-width: 100%;
-    }
-    .slate-image-embed__resize-full-width img {
-      width: 100%;
-    }
-    .series-logo {
+
+    .author-img {
       width: 48px;
       height: 48px;
-      box-sizing: border-box;
-      background-clip: content-box;
-      border: 4px solid transparent;
-      border-radius: 6px;
-      object-fit: scale-down;
-      float: left;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
     }
-    .series-title {
-      font-size: 16px;
-      font-weight: 600;
-      vertical-align: top;
+
+    .author-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--foreground);
     }
-    .series-description {
-      color: rgba(0,0,0,.6);
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 20px;
+
+    .author-role {
+      font-size: 0.825rem;
+      color: var(--muted-foreground);
     }
-    div {
-      margin: 32px 0;
+
+    /* Content Typography */
+    .article-content {
+      color: var(--foreground);
+    }
+
+    .article-content p {
+      margin-bottom: 1.65rem;
+      color: #373f3e;
+      font-size: 1.125rem;
+      line-height: 1.85;
+    }
+
+    .article-content h1, 
+    .article-content h2, 
+    .article-content h3 {
+      font-family: var(--font-serif);
+      color: var(--foreground);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .article-content h2 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h3 {
+      font-size: 1.4rem;
+    }
+
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    .article-content ul, 
+    .article-content ol {
+      margin-bottom: 1.75rem;
+      padding-left: 1.75rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.65rem;
+      color: #373f3e;
+    }
+
+    .article-content a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .article-content a:hover {
+      color: var(--accent);
+    }
+
+    /* Author Footer Card */
+    .author-footer-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.25rem;
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .author-footer-card {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .author-footer-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      flex-shrink: 0;
+    }
+
+    .author-footer-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--foreground);
+      margin-bottom: 0.35rem;
+    }
+
+    .author-footer-bio {
+      font-size: 0.9rem;
+      color: var(--muted-foreground);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .author-footer-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--foreground);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
     }
   </style>
 </head>
 <body>
-    <img class="series-logo" src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY" />
+
+  <!-- Top Bar -->
+  <div class="article-header-bar">
+    <a href="../index.html#articles" class="back-link">
+      &larr; Back to Dr. Sabine Fonderson Portfolio
+    </a>
+    <a href="../index.html#book" class="header-cta">
+      Book Sabine for Speaking
+    </a>
+  </div>
+
+  <!-- Main Article Body -->
+  <main class="article-container">
+    <div class="article-meta-row">
+      <span class="badge">AI & Clinical Tech</span>
+      <span class="article-date">2025</span>
+    </div>
+
+    <h1 class="article-main-title">The 25-Month Wait: Why We Can't Let Immigrant Doctors' Talent Go to Waste</h1>
+
+    <div class="author-byline">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-img">
+      <div>
+        <p class="author-name">Dr. Sabine Fonderson</p>
+        <p class="author-role">Physician · Health AI Innovator · Keynote Speaker</p>
+      </div>
+    </div>
+
+    <article class="article-content">
+      <img src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY"></img>
     <h3>
-      <span class="series-title">The real doctor </span>
+      <span>The real doctor </span>
       </br>
-      <span class="series-description">Helping doctors rebuild their careers after immigration.</span>
+      <span>Helping doctors rebuild their careers after immigration.</span>
     </h3>
-    <img src="https://media.licdn.com/mediaD4E12AQGSyJ1fZYTRqA" alt="This image is generated by AI" title="This image is generated by AI" />
-      <h1><a href="https://www.linkedin.com/pulse/25-month-wait-why-we-cant-let-immigrant-doctors-talent-fonderson-w4oye">The 25-Month Wait: Why We Can't Let Immigrant Doctors' Talent Go to Waste
-</a></h1>
-    <p class="created">Created on 2025-03-30 22:43</p>
-  <p class="published">Published on 2025-03-31 11:30</p>
+    <img src="https://media.licdn.com/mediaD4E12AQGSyJ1fZYTRqA" alt="This image is generated by AI" title="This image is generated by AI"></img>
+      
+    <p>Created on 2025-03-30 22:43</p>
+  <p>Published on 2025-03-31 11:30</p>
   <div><p><strong>Helping Internationally Trained Doctors Build Their Talent Despite System Delays</strong></p><hr><p><strong>The 25-Month Wait</strong></p><p>In March 2025, <a href="https://www.medischcontact.nl/actueel/laatste-nieuws/artikel/loopbaan-buitenlands-gediplomeerde-artsen-on-hold-door-wachten-op-toets" target="_blank"><em>Medisch Contact</em></a> revealed a crisis: more than 150 internationally trained doctors in the Netherlands are waiting up to <strong>25 months</strong> to take the BI-toets, the final step before medical licensure.</p><p>The <strong>BI-toets (Beroepsinhoudelijke Toets)</strong> is a professional medical exam with three parts:</p><ul><li><p>A general medical knowledge test</p></li><li><p>A clinical reasoning test</p></li><li><p>A practical exam with simulated patients (actors)</p></li></ul><p>The practical exam is only offered a few times per year, at one location: Radboudumc in Nijmegen.</p><p>In 2024, the AKV (language/general skills test) was removed to help accelerate the process. But the system bottlenecked. More candidates could apply, yet the number of test slots remained the same. The main problem now is that many elligible health professional candidates are now waiting over <strong>two years</strong> to take the test.</p><hr><p><strong>Why It Matters</strong></p><p>During these long waits, doctors are often:</p><ul><li><p>Unable to work clinically</p></li><li><p>Overqualified for entry-level roles</p></li><li><p>Underqualified (legally) for medical roles</p></li></ul><p>As a former president of the <a href="https://www.vbga.nl/over-ons/" target="_blank">Vereniging Buitenlands Gediplomeerde Artsen (VBGA),</a> I’ve spoken to many immigrant doctors who have navigating this system. I’ve seen the emotional, professional, and financial strain it causes.</p><p>And while the consequences may not be visible yet, <strong>they’re building</strong>.</p><p>We’re standing at the intersection of <strong>three threats:</strong></p><ol><li><p>An<strong> aging population </strong>with complex care needs</p></li><li><p>A <strong>shrinking clinical workforce</strong></p></li><li><p>Continued <strong>underfunding in healthcare</strong></p></li></ol><p>We can’t afford to waste talent. And we certainly can’t afford to let brilliant, motivated doctors fade into <strong>invisibility</strong>.</p><hr><p><strong>Doctors Aren’t Asking for Shortcuts, Just Opportunities</strong></p><p>Internationally trained doctors want to meet high standards. They accept the exam process. But what happens <em>while</em> they wait?</p><p>We must offer ways for them to stay active, stay seen, and stay sharp.</p><p>This newsletter is for those doctors. And for every clinician navigating medicine in a second language. If the system doesn’t have space for you <em>yet</em>, let us build onne that works for you.</p><hr><p><strong>My Own Waiting Period</strong></p><p>When I moved to the UK as a trained doctor, I was required to pass the <a href="https://ielts.org/" target="_blank">IELTS</a>, even though English is my first language, I achieved my medical diploma in the Netherlands. During the two-month wait, I refused to let my skills go to waste.</p><p>Here’s what I did:</p><ul><li><p>Wrote patient education content for <a href="https://www.hearst.com/hearst-health" target="_blank">Hearst International</a></p></li><li><p>Edited protocols for health ministries in Cameroon and Dubai</p></li><li><p>Tutored international medical students and helped place them in internships in Africa</p></li><li><p>Built, sold digital systems and templates for clinical efficiency</p></li></ul><p>That period taught me something vital: <strong>waiting doesn’t mean standing still.</strong></p><hr><p><strong>4 Things You Can Do While You Wait</strong></p><h3>1. Start a Micro-Clinic (Ethically and Legally)</h3><p>Services may include:</p><ul><li><p>Health coaching</p></li><li><p>Lifestyle support</p></li><li><p>Chronic illness management</p></li><li><p>Patient education for immigrant populations</p></li></ul><p>You’re not diagnosing or prescribing, but you are <em>supporting</em>, <em>educating</em>, and <em>empowering</em>. This is part of my <strong>Ideal Practice Launch</strong> program.</p><h3>2. Write and Edit Medical Content</h3><p>Use your medical knowledge to:</p><ul><li><p>Write patient-friendly articles</p></li><li><p>Translate health letters and lab results</p></li><li><p>Create multilingual health education materials</p></li></ul><p>This is how I earned income and built credibility during my own wait.</p><h3>3. Contribute to Research</h3><p>Many departments accept unregistered doctors to support:</p><ul><li><p>Literature reviews</p></li><li><p>Protocol writing</p></li><li><p>Scientific editing</p></li></ul><p>Yes, it requires persistence. I’ve helped dozens of doctors craft emails, tailor CVs, and prepare motivation letters to land these opportunities.</p><p>Once in, you’ll need to produce real output. That’s why I created the <strong>phdPLANR</strong> — a 12-week structured journal designed for internationally trained doctors who want to publish their first article.</p><p><strong>Ready to write your first article without chaos?</strong> [→ Download <a href="https://therealdoctorcoach.gumroad.com/l/rqgiz" target="_blank">phdPLANR on Gumroad</a>]</p><h3>4. Offer Cultural and Language Support</h3><p>Use your multilingual skills to:</p><ul><li><p>Help patients understand test results</p></li><li><p>Serve as a medical guide or consultant in clinics</p></li><li><p>Support aging patients and their families with navigation</p></li></ul><p>You may not be licensed <em>yet</em>, but you are still a trusted interpreter of medical meaning. This builds trust, reputation, and credibility.</p><hr><p><strong>You're Not Just a Candidate — You're Still a Doctor</strong></p><p>Too many brilliant doctors are made to feel invisible. But their training hasn't expired. Their knowledge hasn’t disappeared. Their value is still very real.</p><p>If we do not activate their talent now, we risk losing a generation of <strong>future-ready healthcare professionals.</strong></p><hr><p><strong>Ready to Start While You Wait?</strong></p><p>If you want to:</p><ul><li><p>Start your non-clinical practice</p></li><li><p>Publish your first article while waiting for exams</p></li><li><p>Join a growing circle of immigrant doctors building their own path</p></li></ul><p>Let’s talk. Reply to this newsletter or message me directly.</p><p>We’re not just waiting. We’re building.</p><hr><p><strong>The Real Doctor will return next Monday. Until then, stay authentic and keep learning.</strong></p></div>
+    </article>
+
+    <!-- Author Callout Box -->
+    <div class="author-footer-card">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-footer-img">
+      <div>
+        <h3 class="author-footer-title">About Dr. Sabine Fonderson</h3>
+        <p class="author-footer-bio">
+          Practising General Practitioner (Rotterdam), Health AI developer, and international keynote speaker delivering unfiltered talks on clinical AI, patient safety, and medical leadership.
+        </p>
+        <div class="author-footer-ctas">
+          <a href="../index.html#book" class="btn btn-primary">Book for Speaking &rarr;</a>
+          <a href="https://ai.drfonderson.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore AI Tools &nearr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
 </body>
 </html>

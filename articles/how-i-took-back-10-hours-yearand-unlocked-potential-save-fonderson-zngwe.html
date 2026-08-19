@@ -1,153 +1,368 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>How I Took Back 10 Hours This Year—and Unlocked the Potential to Save 5 Days</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How I Took Back 10 Hours This Year—and Unlocked the Potential to Save 5 Days | Dr. Sabine Fonderson</title>
+  <meta name="description" content="How I Took Back 10 Hours This Year—and Unlocked the Potential to Save 5 Days - Insights on healthcare, medical leadership, and clinical AI by Dr. Sabine Fonderson.">
+  <meta name="author" content="Dr. Sabine Fonderson">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --background: #f6f0e6;
+      --foreground: #303535;
+      --card: #fbf7ef;
+      --primary: #174a47;
+      --primary-hover: #2c625e;
+      --primary-foreground: #f6f0e6;
+      --accent: #c9785b;
+      --muted: #ece3d3;
+      --muted-foreground: #5f6b6a;
+      --border: #ddd0bb;
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0 auto;
-      width: 744px;
-      font-family: Source Serif Pro, serif;
-      line-height: 32px;
-      font-weight: 400;
-      color: rgba(0, 0, 0, 0.7);
-      font-size: 21px;
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      font-size: 1.125rem;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+      padding: 0;
     }
-    h1, h2, h3 {
-      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+
+    /* Sticky Editorial Header */
+    .article-header-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background-color: rgba(246, 240, 230, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    h1 a, h1 a:visited {
-      color: inherit;
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
-    h1 {
-      line-height: 48px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 42px;
-      margin: 32px 0 20px;
+
+    .back-link:hover {
+      color: var(--accent);
     }
-    h2 {
-      line-height: 32px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 26px;
-      margin: 28px 0;
-    }
-    h3 {
-      line-height: 28px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 21px;
-      margin: 24px 0;
-    }
-    p {
-      margin: 32px 0;
-    }
-    .created, .published {
-      color: rgba(0, 0, 0, 0.55);
-      font-size: 15px;
-      line-height: 15px;
-      margin: 20px 0;
-    }
-    .created + .published {
-      margin-top: -12px;
-    }
-    blockquote {
-      font-family: Georgia, Source Serif Pro, serif;
-      font-style: italic;
-      font-size: 24px;
-      line-height: 36px;
-      margin: 48px 120px;
-      text-align: center;
-    }
-    a {
-      word-wrap: break-word;
-      outline: none;
+
+    .header-cta {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      padding: 0.5rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
       text-decoration: none;
-      background-color: transparent;
-      border: 0;
-      color: #008CC9;
+      transition: all 0.2s ease;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .header-cta:hover {
+      background-color: var(--primary-hover);
     }
-    a:visited {
-      color: #8C68CB;
+
+    /* Article Container */
+    .article-container {
+      max-width: 760px;
+      margin: 3.5rem auto 6rem;
+      padding: 0 1.5rem;
     }
-    .center {
-      text-align: center;
+
+    /* Meta Info */
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
-    iframe {
-      display: block;
-      margin: 44px auto;
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background-color: rgba(201, 120, 91, 0.15);
+      color: var(--accent);
     }
-    *:not(pre) + pre, pre:first-of-type {
-      margin-top: 32px;
-      padding-top: 32px;
+
+    .article-date {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
     }
-    pre:only-of-type {
-      margin: 32px 0;
-      padding: 32px;
+
+    /* Main Title */
+    .article-main-title {
+      font-family: var(--font-serif);
+      font-size: 2.35rem;
+      line-height: 1.25;
+      color: var(--foreground);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
-    pre {
-      background: #F3F6F8;
-      overflow-x: auto;
-      display: block;
-      font-size: 13px;
-      font-family: monospace;
-      line-height: 13px;
-      padding: 0 32px 32px;
-      white-space: pre;
+
+    @media (min-width: 768px) {
+      .article-main-title {
+        font-size: 2.85rem;
+      }
     }
-    a.embedded {
-      background: #F3F6F8;
-      display: block;
-      padding: 32px;
-      margin: 32px 0;
+
+    .author-byline {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
     }
-    img {
-      height: auto;
-      max-width: 100%;
-    }
-    .slate-image-embed__resize-full-width img {
-      width: 100%;
-    }
-    .series-logo {
+
+    .author-img {
       width: 48px;
       height: 48px;
-      box-sizing: border-box;
-      background-clip: content-box;
-      border: 4px solid transparent;
-      border-radius: 6px;
-      object-fit: scale-down;
-      float: left;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
     }
-    .series-title {
-      font-size: 16px;
-      font-weight: 600;
-      vertical-align: top;
+
+    .author-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--foreground);
     }
-    .series-description {
-      color: rgba(0,0,0,.6);
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 20px;
+
+    .author-role {
+      font-size: 0.825rem;
+      color: var(--muted-foreground);
     }
-    div {
-      margin: 32px 0;
+
+    /* Content Typography */
+    .article-content {
+      color: var(--foreground);
+    }
+
+    .article-content p {
+      margin-bottom: 1.65rem;
+      color: #373f3e;
+      font-size: 1.125rem;
+      line-height: 1.85;
+    }
+
+    .article-content h1, 
+    .article-content h2, 
+    .article-content h3 {
+      font-family: var(--font-serif);
+      color: var(--foreground);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .article-content h2 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h3 {
+      font-size: 1.4rem;
+    }
+
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    .article-content ul, 
+    .article-content ol {
+      margin-bottom: 1.75rem;
+      padding-left: 1.75rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.65rem;
+      color: #373f3e;
+    }
+
+    .article-content a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .article-content a:hover {
+      color: var(--accent);
+    }
+
+    /* Author Footer Card */
+    .author-footer-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.25rem;
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .author-footer-card {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .author-footer-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      flex-shrink: 0;
+    }
+
+    .author-footer-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--foreground);
+      margin-bottom: 0.35rem;
+    }
+
+    .author-footer-bio {
+      font-size: 0.9rem;
+      color: var(--muted-foreground);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .author-footer-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--foreground);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
     }
   </style>
 </head>
 <body>
-    <img class="series-logo" src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY" />
+
+  <!-- Top Bar -->
+  <div class="article-header-bar">
+    <a href="../index.html#articles" class="back-link">
+      &larr; Back to Dr. Sabine Fonderson Portfolio
+    </a>
+    <a href="../index.html#book" class="header-cta">
+      Book Sabine for Speaking
+    </a>
+  </div>
+
+  <!-- Main Article Body -->
+  <main class="article-container">
+    <div class="article-meta-row">
+      <span class="badge">Healthcare & Leadership</span>
+      <span class="article-date">2025</span>
+    </div>
+
+    <h1 class="article-main-title">How I Took Back 10 Hours This Year—and Unlocked the Potential to Save 5 Days</h1>
+
+    <div class="author-byline">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-img">
+      <div>
+        <p class="author-name">Dr. Sabine Fonderson</p>
+        <p class="author-role">Physician · Health AI Innovator · Keynote Speaker</p>
+      </div>
+    </div>
+
+    <article class="article-content">
+      <img src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY"></img>
     <h3>
-      <span class="series-title">The real doctor </span>
+      <span>The real doctor </span>
       </br>
-      <span class="series-description">Helping doctors rebuild their careers after immigration.</span>
+      <span>Helping doctors rebuild their careers after immigration.</span>
     </h3>
-    <img src="https://media.licdn.com/mediaD4E12AQHIUk1GDcY9pg" alt="Generated by AI - this is not me." title="Generated by AI - this is not me." />
-      <h1><a href="https://www.linkedin.com/pulse/how-i-took-back-10-hours-yearand-unlocked-potential-save-fonderson-zngwe">How I Took Back 10 Hours This Year—and Unlocked the Potential to Save 5 Days</a></h1>
-    <p class="created">Created on 2025-03-23 20:38</p>
-  <p class="published">Published on 2025-03-24 18:30</p>
-  <div><p><em>For immigrant doctors rebuilding their careers, one system at a time</em></p><p>When I restarted my medical career in the Netherlands, I had left for over 10 years and was expected to learn how the healthcare system worked all over again. What I didn’t expect was how much I would need to <strong>relearn how to work</strong>—efficiently, safely, and without burning out.</p><p>The clinical side wasn’t the problem. I knew how to diagnose, treat, listen, and care.</p><p>But the <strong>administration?</strong> That was another story.</p><p>Let me give you a few examples that, if you’re working in a second-language health system, might sound all too familiar:</p><h3>1. The Referral Ping-Pong</h3><p>Patients regularly ask for referrals to specialist X in hospital A. A few days later, I get a phone call:</p><blockquote><p>“Actually, my neighbour had their knee surgery in hospital B—can you resend the referral there instead?”</p></blockquote><p>This might seem small, but it happens almost <strong>every day</strong>.</p><h3>2. The Letter B vs. S Problem</h3><p>In the Dutch mental health system, there’s <strong>basic care (B)</strong> and <strong>specialist care (S)</strong>. Sometimes I send a well-structured referral to the basic service, only to get a response a few days later:</p><blockquote><p>“Can you resend this same letter but change the ‘B’ to ‘S’ so we can accept it?”</p></blockquote><p>Same patient. Same information. Just a different letter. Again—sounds minor. But it’s <strong>time-consuming</strong>, <strong>repetitive</strong>, and in my honest opinion, <strong>completely avoidable</strong>.</p><hr><h3>3. The Endless Documentation Requests</h3><p>Parents need a letter for school confirming their child has ADHD and requires headphones. Insurers request full documentation—but only for the <strong>left shoulder</strong>, only from the date of a specific car accident. Home care referrals. Disability assessments. Sick leave declarations. School absence letters. Fitness-to-work reports.</p><p>Eventhough there are regulations to limit the number of documentation requests, there is a certain expectations that patients and other instutions have that a general practitioner can just provide this.</p><p>The list goes on.</p><h3>Now add a language barrier into the mix.</h3><p>Writing these letters in Dutch, documenting in Dutch, explaining symptoms and summarizing complex care paths in Dutch, it’s not just mentally draining. It takes <strong>twice as long</strong> when you're working in your second language.</p><p>And I haven’t even touched on the <strong>emotional toll</strong> of always having to double check your spelling, sentence structure, or phrasing, just to ensure clarity and professionalism.</p><p>And while nothing will make that work disappear completely, I did find one tool that helped me take back control: #<strong>TextExpander</strong>. (<a href="http://www.textexpander.com" target="_blank">www.textexpander.com</a>) </p><p>In this newsletter, I’m showing you exactly how I saved <strong>10 hours this year</strong> using this one tool. And why I believe it holds the potential to save <strong>up to 5 full days</strong> of my year as I continue to use it consistently.</p><h3>What Is TextExpander?</h3><p>It’s a simple typing shortcut tool. You create <strong>snippets</strong> (shortcuts) for the text you use all the time, and it expands into full sentences or paragraphs when you type a code like <strong><em>;referralintro.</em></strong></p><p>It's like having a <strong>second brain that types for you</strong>, one that’s reliable, consistent, and multilingual if you need it to be. I use textexpander in both English and in Dutch to save me time and make sure that I maintain a consistency in my approach with patients and colleagues alike.</p><h3>What I Gained From It</h3><p></p><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQGjBo5YOWTnGA" src="https://media.licdn.com/dms/image/v2/D4E12AQGjBo5YOWTnGA/article-inline_image-shrink_1500_2232/B4EZXEx26_HMAU-/0/1742763160250?e=1787788800&amp;v=beta&amp;t=bKJ5mzedRrcjSvEIaKEtnIfpMu5-H3PMbQ592BhtJIw"><figcaption>Minutes saved in 2024</figcaption></figure><p>Here’s what I actually saved from January to December 2024 (excluding July, when I was on holiday):</p><ul><li><p><strong>10 hours saved</strong> (582+ minutes)</p></li><li><p><strong>580+ snippets expanded</strong></p></li><li><p><strong>12-month usage streak</strong></p></li></ul><p>That might not sound huge, but it’s the beginning of something much bigger. With consistent use and better systems, I am on well on my way to use this tool and save myself <strong>up to 5 full working days per year</strong>. That’s real time—time to see patients better, think clearer, and just take back control of my own agenda. Imagine saving nearly 1 month of administration time a year. That is my goal.</p><hr><h3>Here’s Exactly How I Use It</h3><h3>1. Structured Referrals That Keep Me Focused</h3><p>I write about <strong>30 referrals a day</strong>. And I always begin with the same sentence:</p><blockquote><p>"Dear colleague, I hereby refer you my xx-year-old patient with xx complaints. His/her medical history includes xxx. Upon examination, I found xxx. We require your further expertise for the following xxx."</p></blockquote><p>I created a snippet called<strong><em> ;referralintro</em></strong>. It pops this out in seconds—and more importantly, keeps me <strong>focused</strong>.</p><p>True fact: I once almost sent a referral for the <em>wrong patient</em>. A colleague caught it. Since then, this intro acts as my mental anchor. It ensures I’m present with each case.</p><h3>2. Acute Assessments Made Safer</h3><p>In urgent cases, I use a snippet in Dutch when I make a rapid assessment of my patients in the emergency department to guide my clinical judgement: I can then edit accordingly to what I have assessed. Later once the patient is stabilised, I can go ahead and write a more elaborate assessment. This helps me to focus on the job at hand.</p><pre></pre><p>Even on hectic days, I know I haven’t missed the basics. This one is called<strong><em> ;urgentassessment.</em></strong></p><h3>3. Safety-Netting for Common Complaints</h3><p>About 80% of my patients go home with advice and a safety net. So I built snippets in Dutch for the most common conditions:</p><p><strong>Headache</strong></p><pre></pre><p><strong>Fever in a child</strong></p><pre></pre><p><strong>Throat pain</strong></p><pre></pre><p>You don’t need to be fluent to sound fluent. These snippets help me communicate clearly, confidently, and consistently—with less stress and zero second-guessing.</p><h3>4. Admin Made Bearable</h3><p>When I took over the current practice I onw, I had to fill out the same information dozens of times: If I am honest, the administrative workload during the takeover was overwhelming. When I used textexpander, it was to provide me with quick and accurate information on topics like:</p><ul><li><p>Secure email</p></li><li><p>Practice address</p></li><li><p>Chamber of commerce number (kvk)</p></li><li><p>Practice codes</p></li><li><p>Website links</p></li></ul><p>Instead of searching or retyping, I just type<em>d</em><strong><em> ;address, ;email, ;practicecode ;practicedetails </em></strong>or<strong><em> ;kvk </em></strong>and it was done.</p><hr><h2>Some examples of my snippets as screenshots</h2><p></p><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQGEu_vijWlQjQ" src="https://media.licdn.com/dms/image/v2/D4E12AQGEu_vijWlQjQ/article-inline_image-shrink_400_744/B4EZXE2cqvHUAY-/0/1742764362813?e=1787788800&amp;v=beta&amp;t=-dA-TGsC1QD_Vsrie3heBw2QtEbEasW_ntFFrTnx_0Q"><figcaption>Example of snippet group. I use the Dutch national guidelines for general practitioners (NHG)</figcaption></figure><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQEGFUAVlOXVJQ" src="https://media.licdn.com/dms/image/v2/D4E12AQEGFUAVlOXVJQ/article-inline_image-shrink_1500_2232/B4EZXE2cqhGYAU-/0/1742764363014?e=1787788800&amp;v=beta&amp;t=kd6nSp9zGHqilCYAIWPi2ZEt4EVTDoBEtZBWxCKD5DU"><figcaption>Example of snippets under category NHG A (Algemeen/General) derived from International Classification for Primary Care (ICPC)</figcaption></figure><p></p><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQFnpqi8prL6cg" src="https://media.licdn.com/dms/image/v2/D4E12AQFnpqi8prL6cg/article-inline_image-shrink_1500_2232/B4EZXE2cp2G0AU-/0/1742764362842?e=1787788800&amp;v=beta&amp;t=Y4r2Dfldomn_AX3w8JWZSB63Cw9nDlFdMcNM74r7D9U"><figcaption>Example of the full text that expands when I use the shortcode (snippet) ;verkoudheidsklachten (common cold complaints) in the plan section of a patient file.</figcaption></figure><h3></h3><hr><h3>Maintenance Tip: Review Monthly</h3><p>Once a month, I scroll through my snippet list. I delete the ones I no longer use. I update anything outdated. And I often find ideas for new ones based on what I’ve been doing a lot that month.</p><p>This tiny habit keeps the tool clean, sharp, and always relevant.</p><hr><h3>Final Thoughts for immigrant Doctors</h3><p>If you're building or rebuilding your medical career in a new country, efficiency isn’t optional, it’s essential. <a href="https://www.textexpander.com" target="_blank">TextExpander</a> has helped me:</p><ul><li><p>Save time</p></li><li><p>Avoid errors</p></li><li><p>Communicate with clarity</p></li><li><p>And most importantly: reduce stress</p></li></ul><p>This isn’t a magic fix. It’s a smart system. And it’s one small step toward taking back control of your time and your clinical practice.</p><h3></h3><hr><h3>Want to Go Deeper?</h3><p>I’m running a <strong>free 45-minute webinar</strong> called: <strong>“Take Control of Your Agenda: Save Time Wisely”</strong></p><p>I’ll show you exactly how I use TextExpander in my real GP workday, and how to build a sustainable, efficient workflow, especially if you’re working in your second language or switching specializations.</p><p>Interested? <strong>Leave a comment or DM me with “I’m in.”</strong> Once I have 10 people, I’ll send out the link. Spots are limited to keep it personal.</p><h3></h3><hr><h3>Coming Soon:</h3><p>Should I create a free downloadable <strong>"Snippet Starter Workbook for Doctors"</strong>?</p><p>It would include:</p><ul><li><p>10 ready-made snippets for referrals, assessments, and safety-netting</p></li><li><p>Setup instructions for TextExpander</p></li><li><p>A reflection page to track your own time saved</p></li></ul><p><strong>Let me know in the comments if you'd use it.</strong> If enough people are interested, I’ll build it and send it to all subscribers.</p><h3></h3><p></p><p>Thank you for reading. And thank you to all of you who’ve subscribed, this community is just getting started.</p><p>Let’s build better careers after immigration.</p></div>
+    <img src="https://media.licdn.com/mediaD4E12AQHIUk1GDcY9pg" alt="Generated by AI - this is not me." title="Generated by AI - this is not me."></img>
+      
+    <p>Created on 2025-03-23 20:38</p>
+  <p>Published on 2025-03-24 18:30</p>
+  <div><p><em>For immigrant doctors rebuilding their careers, one system at a time</em></p><p>When I restarted my medical career in the Netherlands, I had left for over 10 years and was expected to learn how the healthcare system worked all over again. What I didn’t expect was how much I would need to <strong>relearn how to work</strong>—efficiently, safely, and without burning out.</p><p>The clinical side wasn’t the problem. I knew how to diagnose, treat, listen, and care.</p><p>But the <strong>administration?</strong> That was another story.</p><p>Let me give you a few examples that, if you’re working in a second-language health system, might sound all too familiar:</p><h3>1. The Referral Ping-Pong</h3><p>Patients regularly ask for referrals to specialist X in hospital A. A few days later, I get a phone call:</p><blockquote><p>“Actually, my neighbour had their knee surgery in hospital B—can you resend the referral there instead?”</p></blockquote><p>This might seem small, but it happens almost <strong>every day</strong>.</p><h3>2. The Letter B vs. S Problem</h3><p>In the Dutch mental health system, there’s <strong>basic care (B)</strong> and <strong>specialist care (S)</strong>. Sometimes I send a well-structured referral to the basic service, only to get a response a few days later:</p><blockquote><p>“Can you resend this same letter but change the ‘B’ to ‘S’ so we can accept it?”</p></blockquote><p>Same patient. Same information. Just a different letter. Again—sounds minor. But it’s <strong>time-consuming</strong>, <strong>repetitive</strong>, and in my honest opinion, <strong>completely avoidable</strong>.</p><hr><h3>3. The Endless Documentation Requests</h3><p>Parents need a letter for school confirming their child has ADHD and requires headphones. Insurers request full documentation—but only for the <strong>left shoulder</strong>, only from the date of a specific car accident. Home care referrals. Disability assessments. Sick leave declarations. School absence letters. Fitness-to-work reports.</p><p>Eventhough there are regulations to limit the number of documentation requests, there is a certain expectations that patients and other instutions have that a general practitioner can just provide this.</p><p>The list goes on.</p><h3>Now add a language barrier into the mix.</h3><p>Writing these letters in Dutch, documenting in Dutch, explaining symptoms and summarizing complex care paths in Dutch, it’s not just mentally draining. It takes <strong>twice as long</strong> when you're working in your second language.</p><p>And I haven’t even touched on the <strong>emotional toll</strong> of always having to double check your spelling, sentence structure, or phrasing, just to ensure clarity and professionalism.</p><p>And while nothing will make that work disappear completely, I did find one tool that helped me take back control: #<strong>TextExpander</strong>. (<a href="http://www.textexpander.com" target="_blank">www.textexpander.com</a>) </p><p>In this newsletter, I’m showing you exactly how I saved <strong>10 hours this year</strong> using this one tool. And why I believe it holds the potential to save <strong>up to 5 full days</strong> of my year as I continue to use it consistently.</p><h3>What Is TextExpander?</h3><p>It’s a simple typing shortcut tool. You create <strong>snippets</strong> (shortcuts) for the text you use all the time, and it expands into full sentences or paragraphs when you type a code like <strong><em>;referralintro.</em></strong></p><p>It's like having a <strong>second brain that types for you</strong>, one that’s reliable, consistent, and multilingual if you need it to be. I use textexpander in both English and in Dutch to save me time and make sure that I maintain a consistency in my approach with patients and colleagues alike.</p><h3>What I Gained From It</h3><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQGjBo5YOWTnGA" src="https://media.licdn.com/dms/image/v2/D4E12AQGjBo5YOWTnGA/article-inline_image-shrink_1500_2232/B4EZXEx26_HMAU-/0/1742763160250?e=1787788800&v=beta&t=bKJ5mzedRrcjSvEIaKEtnIfpMu5-H3PMbQ592BhtJIw"><figcaption>Minutes saved in 2024</figcaption></figure><p>Here’s what I actually saved from January to December 2024 (excluding July, when I was on holiday):</p><ul><li><p><strong>10 hours saved</strong> (582+ minutes)</p></li><li><p><strong>580+ snippets expanded</strong></p></li><li><p><strong>12-month usage streak</strong></p></li></ul><p>That might not sound huge, but it’s the beginning of something much bigger. With consistent use and better systems, I am on well on my way to use this tool and save myself <strong>up to 5 full working days per year</strong>. That’s real time—time to see patients better, think clearer, and just take back control of my own agenda. Imagine saving nearly 1 month of administration time a year. That is my goal.</p><hr><h3>Here’s Exactly How I Use It</h3><h3>1. Structured Referrals That Keep Me Focused</h3><p>I write about <strong>30 referrals a day</strong>. And I always begin with the same sentence:</p><blockquote><p>"Dear colleague, I hereby refer you my xx-year-old patient with xx complaints. His/her medical history includes xxx. Upon examination, I found xxx. We require your further expertise for the following xxx."</p></blockquote><p>I created a snippet called<strong><em> ;referralintro</em></strong>. It pops this out in seconds—and more importantly, keeps me <strong>focused</strong>.</p><p>True fact: I once almost sent a referral for the <em>wrong patient</em>. A colleague caught it. Since then, this intro acts as my mental anchor. It ensures I’m present with each case.</p><h3>2. Acute Assessments Made Safer</h3><p>In urgent cases, I use a snippet in Dutch when I make a rapid assessment of my patients in the emergency department to guide my clinical judgement: I can then edit accordingly to what I have assessed. Later once the patient is stabilised, I can go ahead and write a more elaborate assessment. This helps me to focus on the job at hand.</p><pre></pre><p>Even on hectic days, I know I haven’t missed the basics. This one is called<strong><em> ;urgentassessment.</em></strong></p><h3>3. Safety-Netting for Common Complaints</h3><p>About 80% of my patients go home with advice and a safety net. So I built snippets in Dutch for the most common conditions:</p><p><strong>Headache</strong></p><pre></pre><p><strong>Fever in a child</strong></p><pre></pre><p><strong>Throat pain</strong></p><pre></pre><p>You don’t need to be fluent to sound fluent. These snippets help me communicate clearly, confidently, and consistently—with less stress and zero second-guessing.</p><h3>4. Admin Made Bearable</h3><p>When I took over the current practice I onw, I had to fill out the same information dozens of times: If I am honest, the administrative workload during the takeover was overwhelming. When I used textexpander, it was to provide me with quick and accurate information on topics like:</p><ul><li><p>Secure email</p></li><li><p>Practice address</p></li><li><p>Chamber of commerce number (kvk)</p></li><li><p>Practice codes</p></li><li><p>Website links</p></li></ul><p>Instead of searching or retyping, I just type<em>d</em><strong><em> ;address, ;email, ;practicecode ;practicedetails </em></strong>or<strong><em> ;kvk </em></strong>and it was done.</p><hr><h2>Some examples of my snippets as screenshots</h2><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQGEu_vijWlQjQ" src="https://media.licdn.com/dms/image/v2/D4E12AQGEu_vijWlQjQ/article-inline_image-shrink_400_744/B4EZXE2cqvHUAY-/0/1742764362813?e=1787788800&v=beta&t=-dA-TGsC1QD_Vsrie3heBw2QtEbEasW_ntFFrTnx_0Q"><figcaption>Example of snippet group. I use the Dutch national guidelines for general practitioners (NHG)</figcaption></figure><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQEGFUAVlOXVJQ" src="https://media.licdn.com/dms/image/v2/D4E12AQEGFUAVlOXVJQ/article-inline_image-shrink_1500_2232/B4EZXE2cqhGYAU-/0/1742764363014?e=1787788800&v=beta&t=kd6nSp9zGHqilCYAIWPi2ZEt4EVTDoBEtZBWxCKD5DU"><figcaption>Example of snippets under category NHG A (Algemeen/General) derived from International Classification for Primary Care (ICPC)</figcaption></figure><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQFnpqi8prL6cg" src="https://media.licdn.com/dms/image/v2/D4E12AQFnpqi8prL6cg/article-inline_image-shrink_1500_2232/B4EZXE2cp2G0AU-/0/1742764362842?e=1787788800&v=beta&t=Y4r2Dfldomn_AX3w8JWZSB63Cw9nDlFdMcNM74r7D9U"><figcaption>Example of the full text that expands when I use the shortcode (snippet) ;verkoudheidsklachten (common cold complaints) in the plan section of a patient file.</figcaption></figure><h3></h3><hr><h3>Maintenance Tip: Review Monthly</h3><p>Once a month, I scroll through my snippet list. I delete the ones I no longer use. I update anything outdated. And I often find ideas for new ones based on what I’ve been doing a lot that month.</p><p>This tiny habit keeps the tool clean, sharp, and always relevant.</p><hr><h3>Final Thoughts for immigrant Doctors</h3><p>If you're building or rebuilding your medical career in a new country, efficiency isn’t optional, it’s essential. <a href="https://www.textexpander.com" target="_blank">TextExpander</a> has helped me:</p><ul><li><p>Save time</p></li><li><p>Avoid errors</p></li><li><p>Communicate with clarity</p></li><li><p>And most importantly: reduce stress</p></li></ul><p>This isn’t a magic fix. It’s a smart system. And it’s one small step toward taking back control of your time and your clinical practice.</p><h3></h3><hr><h3>Want to Go Deeper?</h3><p>I’m running a <strong>free 45-minute webinar</strong> called: <strong>“Take Control of Your Agenda: Save Time Wisely”</strong></p><p>I’ll show you exactly how I use TextExpander in my real GP workday, and how to build a sustainable, efficient workflow, especially if you’re working in your second language or switching specializations.</p><p>Interested? <strong>Leave a comment or DM me with “I’m in.”</strong> Once I have 10 people, I’ll send out the link. Spots are limited to keep it personal.</p><h3></h3><hr><h3>Coming Soon:</h3><p>Should I create a free downloadable <strong>"Snippet Starter Workbook for Doctors"</strong>?</p><p>It would include:</p><ul><li><p>10 ready-made snippets for referrals, assessments, and safety-netting</p></li><li><p>Setup instructions for TextExpander</p></li><li><p>A reflection page to track your own time saved</p></li></ul><p><strong>Let me know in the comments if you'd use it.</strong> If enough people are interested, I’ll build it and send it to all subscribers.</p><h3></h3><p>Thank you for reading. And thank you to all of you who’ve subscribed, this community is just getting started.</p><p>Let’s build better careers after immigration.</p></div>
+    </article>
+
+    <!-- Author Callout Box -->
+    <div class="author-footer-card">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-footer-img">
+      <div>
+        <h3 class="author-footer-title">About Dr. Sabine Fonderson</h3>
+        <p class="author-footer-bio">
+          Practising General Practitioner (Rotterdam), Health AI developer, and international keynote speaker delivering unfiltered talks on clinical AI, patient safety, and medical leadership.
+        </p>
+        <div class="author-footer-ctas">
+          <a href="../index.html#book" class="btn btn-primary">Book for Speaking &rarr;</a>
+          <a href="https://ai.drfonderson.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore AI Tools &nearr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
 </body>
 </html>

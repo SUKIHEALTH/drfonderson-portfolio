@@ -1,165 +1,362 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Does fear make you a better doctor?</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Does fear make you a better doctor? | Dr. Sabine Fonderson</title>
+  <meta name="description" content="Does fear make you a better doctor? - Insights on healthcare, medical leadership, and clinical AI by Dr. Sabine Fonderson.">
+  <meta name="author" content="Dr. Sabine Fonderson">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --background: #f6f0e6;
+      --foreground: #303535;
+      --card: #fbf7ef;
+      --primary: #174a47;
+      --primary-hover: #2c625e;
+      --primary-foreground: #f6f0e6;
+      --accent: #c9785b;
+      --muted: #ece3d3;
+      --muted-foreground: #5f6b6a;
+      --border: #ddd0bb;
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0 auto;
-      width: 744px;
-      font-family: Source Serif Pro, serif;
-      line-height: 32px;
-      font-weight: 400;
-      color: rgba(0, 0, 0, 0.7);
-      font-size: 21px;
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      font-size: 1.125rem;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+      padding: 0;
     }
-    h1, h2, h3 {
-      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+
+    /* Sticky Editorial Header */
+    .article-header-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background-color: rgba(246, 240, 230, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    h1 a, h1 a:visited {
-      color: inherit;
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
-    h1 {
-      line-height: 48px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 42px;
-      margin: 32px 0 20px;
+
+    .back-link:hover {
+      color: var(--accent);
     }
-    h2 {
-      line-height: 32px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 26px;
-      margin: 28px 0;
-    }
-    h3 {
-      line-height: 28px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 21px;
-      margin: 24px 0;
-    }
-    p {
-      margin: 32px 0;
-    }
-    .created, .published {
-      color: rgba(0, 0, 0, 0.55);
-      font-size: 15px;
-      line-height: 15px;
-      margin: 20px 0;
-    }
-    .created + .published {
-      margin-top: -12px;
-    }
-    blockquote {
-      font-family: Georgia, Source Serif Pro, serif;
-      font-style: italic;
-      font-size: 24px;
-      line-height: 36px;
-      margin: 48px 120px;
-      text-align: center;
-    }
-    a {
-      word-wrap: break-word;
-      outline: none;
+
+    .header-cta {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      padding: 0.5rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
       text-decoration: none;
-      background-color: transparent;
-      border: 0;
-      color: #008CC9;
+      transition: all 0.2s ease;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .header-cta:hover {
+      background-color: var(--primary-hover);
     }
-    a:visited {
-      color: #8C68CB;
+
+    /* Article Container */
+    .article-container {
+      max-width: 760px;
+      margin: 3.5rem auto 6rem;
+      padding: 0 1.5rem;
     }
-    .center {
-      text-align: center;
+
+    /* Meta Info */
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
-    iframe {
-      display: block;
-      margin: 44px auto;
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background-color: rgba(201, 120, 91, 0.15);
+      color: var(--accent);
     }
-    *:not(pre) + pre, pre:first-of-type {
-      margin-top: 32px;
-      padding-top: 32px;
+
+    .article-date {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
     }
-    pre:only-of-type {
-      margin: 32px 0;
-      padding: 32px;
+
+    /* Main Title */
+    .article-main-title {
+      font-family: var(--font-serif);
+      font-size: 2.35rem;
+      line-height: 1.25;
+      color: var(--foreground);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
-    pre {
-      background: #F3F6F8;
-      overflow-x: auto;
-      display: block;
-      font-size: 13px;
-      font-family: monospace;
-      line-height: 13px;
-      padding: 0 32px 32px;
-      white-space: pre;
+
+    @media (min-width: 768px) {
+      .article-main-title {
+        font-size: 2.85rem;
+      }
     }
-    a.embedded {
-      background: #F3F6F8;
-      display: block;
-      padding: 32px;
-      margin: 32px 0;
+
+    .author-byline {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
     }
-    img {
-      height: auto;
-      max-width: 100%;
-    }
-    .slate-image-embed__resize-full-width img {
-      width: 100%;
-    }
-    .series-logo {
+
+    .author-img {
       width: 48px;
       height: 48px;
-      box-sizing: border-box;
-      background-clip: content-box;
-      border: 4px solid transparent;
-      border-radius: 6px;
-      object-fit: scale-down;
-      float: left;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
     }
-    .series-title {
-      font-size: 16px;
-      font-weight: 600;
-      vertical-align: top;
+
+    .author-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--foreground);
     }
-    .series-description {
-      color: rgba(0,0,0,.6);
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 20px;
+
+    .author-role {
+      font-size: 0.825rem;
+      color: var(--muted-foreground);
     }
-    div {
-      margin: 32px 0;
+
+    /* Content Typography */
+    .article-content {
+      color: var(--foreground);
+    }
+
+    .article-content p {
+      margin-bottom: 1.65rem;
+      color: #373f3e;
+      font-size: 1.125rem;
+      line-height: 1.85;
+    }
+
+    .article-content h1, 
+    .article-content h2, 
+    .article-content h3 {
+      font-family: var(--font-serif);
+      color: var(--foreground);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .article-content h2 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h3 {
+      font-size: 1.4rem;
+    }
+
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    .article-content ul, 
+    .article-content ol {
+      margin-bottom: 1.75rem;
+      padding-left: 1.75rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.65rem;
+      color: #373f3e;
+    }
+
+    .article-content a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .article-content a:hover {
+      color: var(--accent);
+    }
+
+    /* Author Footer Card */
+    .author-footer-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.25rem;
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .author-footer-card {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .author-footer-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      flex-shrink: 0;
+    }
+
+    .author-footer-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--foreground);
+      margin-bottom: 0.35rem;
+    }
+
+    .author-footer-bio {
+      font-size: 0.9rem;
+      color: var(--muted-foreground);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .author-footer-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--foreground);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
     }
   </style>
 </head>
 <body>
-    <img src="https://media.licdn.com/mediaC5612AQGui4xFIMH_QQ" alt="" title="" />
-      <h1><a href="https://www.linkedin.com/pulse/does-fear-make-you-better-doctor-sabine-fonderson">Does fear make you a better doctor?</a></h1>
-    <p class="created">Created on 2015-12-08 15:52</p>
-  <p class="published">Published on 2015-12-08 16:01</p>
+
+  <!-- Top Bar -->
+  <div class="article-header-bar">
+    <a href="../index.html#articles" class="back-link">
+      &larr; Back to Dr. Sabine Fonderson Portfolio
+    </a>
+    <a href="../index.html#book" class="header-cta">
+      Book Sabine for Speaking
+    </a>
+  </div>
+
+  <!-- Main Article Body -->
+  <main class="article-container">
+    <div class="article-meta-row">
+      <span class="badge">Healthcare & Leadership</span>
+      <span class="article-date">2025</span>
+    </div>
+
+    <h1 class="article-main-title">Does fear make you a better doctor?</h1>
+
+    <div class="author-byline">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-img">
+      <div>
+        <p class="author-name">Dr. Sabine Fonderson</p>
+        <p class="author-role">Physician · Health AI Innovator · Keynote Speaker</p>
+      </div>
+    </div>
+
+    <article class="article-content">
+      <img src="https://media.licdn.com/mediaC5612AQGui4xFIMH_QQ" alt="" title=""></img>
+      
+    <p>Created on 2015-12-08 15:52</p>
+  <p>Published on 2015-12-08 16:01</p>
   <div>
   <p>Medical school teaches doctors many things, one of the first thing that I learned is how fear can work as a survival technique. Fear of failing exams made me study longer, harder to pass.</p> 
   <p>Little did I know how that fear-survival technique would come in handy as a house officer straight out of medical school.</p> 
-  <p>I recall starting out in internal medicine and the gastroenterology consultant came in for the morning round. It was my first day on the job, I would be taking care of patients in ward A and my other colleague who had been working there for a year and had proudly told me earlier on she was thinking of applying for a training post was in charge of Ward B. After the rounds, we sat down in the office with a coffee in our hands, the consultant started asking questions regarding what micro-organisms were involved in the patients'&nbsp;conditions and what treatment I would propose for each of them.</p> 
+  <p>I recall starting out in internal medicine and the gastroenterology consultant came in for the morning round. It was my first day on the job, I would be taking care of patients in ward A and my other colleague who had been working there for a year and had proudly told me earlier on she was thinking of applying for a training post was in charge of Ward B. After the rounds, we sat down in the office with a coffee in our hands, the consultant started asking questions regarding what micro-organisms were involved in the patients' conditions and what treatment I would propose for each of them.</p> 
   <p>The sound of crickets followed</p> 
   <p>Had I known that I needed to come in earlier every morning to go through patient notes just in case a consultant would ask some obscure question, I would have. A tip my colleague later told me after the damage was done. Since I had not been able to give an adequate enough answer, the consultant removed his glasses and said</p> 
-  <p>‘If you think you are going to make it in this department by not even thinking up &nbsp;an answer, I fear you will not last at all’.</p> 
+  <p>‘If you think you are going to make it in this department by not even thinking up  an answer, I fear you will not last at all’.</p> 
   <p><strong>What did I do after that?</strong> For weeks I avoided him and I spent every waking moment reading up on gastro-enterological conditions. Fear governed and I made sure to come in 1 hour earlier and go through every patient in that department. I did that for the first 6 months until I had a grasp of different conditions. Until I felt confident enough to diagnose and treat the most common gastric conditions.</p> 
   <p>A few months later whilst in the emergency department, I saw a young man with abdominal pain and he had been triaged for internal medicine. I was not convinced it was a patient for our department and wanted to request an ultrasound to rule out an appendicitis. I called the radiologist who reminded me never to call him again without getting my consultant to review the patient and agree to the ultrasound. My consultant, the one I was avoiding was on call. So I called him.</p> 
   <p>I remember he must have been eating, because he made that funny sound one makes when chewing over the phone. I presented the patient as best as I could over the phone, he interrupted me abruptly before I even got a chance to proceed with the patient’s symptoms and my findings.</p> 
   <p>‘So, why are you calling me? he snapped.</p> 
   <p>‘I would like to request an ultrasound for this patient' I replied. My heart was racing at this time, it nearly jumped out of my throat.</p> 
-  <p>‘An ultrasound? you called me to ask for an ultrasound? what makes you think that this patient needs an ultrasound?' he asked.&nbsp;</p> 
+  <p>‘An ultrasound? you called me to ask for an ultrasound? what makes you think that this patient needs an ultrasound?' he asked. </p> 
   <p>I thought to myself, if you let me finish telling the story, maybe we would not be having this conversation. So I presented my findings and gave my differential diagnosis trying my best to sound convicing. I felt I was pitching a major business to an angel investor. My heart was pounding, all this for a simple ultrasound.</p> 
   <p>I could hear his breath over the phone, it got louder and louder and my voice just trailed off. He began to shout at me on the phone...I don’t recall exactly what he said but it was something in line of ‘how I had disrupted him, I had not followed the right protocol, calling the radiologist first before calling him... He ordered that I first have a surgical doctor look at the patient before jumping to conclusions…appendicitis....if it you think you can make that diagnosis then we will find out soon enough…’</p> 
   <p>It turns out that the young man had to have an emergency appendectomy that same evening.</p> 
-  <p><strong>What did I do at the end of that&nbsp;shift?</strong> &nbsp;I burst into tears. This time around, It was not only fear of failure that took over my abilities as a doctor, it was also the start of an emotional breakdown, going to work wondering ‘what kind of mistakes will I make this time and who will pound at me ready for the kill?’</p> 
-  <p>Fundamentally I do not believe that this is the right method to train doctors into becoming the best they can be. &nbsp;</p> 
+  <p><strong>What did I do at the end of that shift?</strong>  I burst into tears. This time around, It was not only fear of failure that took over my abilities as a doctor, it was also the start of an emotional breakdown, going to work wondering ‘what kind of mistakes will I make this time and who will pound at me ready for the kill?’</p> 
+  <p>Fundamentally I do not believe that this is the right method to train doctors into becoming the best they can be.  </p> 
   <p>The consultants that I have met who have encouraged, supported and valued my work and even mistakes are few and I am grateful for having met them.</p> 
   <p>They remind me that being a doctor is not about fearing failure and mistakes. It using them to serve one purpose and that is to learn from them and move on to better things that they are good at.</p> 
   <blockquote>
@@ -170,5 +367,23 @@
   </blockquote>
  
 </div>
+    </article>
+
+    <!-- Author Callout Box -->
+    <div class="author-footer-card">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-footer-img">
+      <div>
+        <h3 class="author-footer-title">About Dr. Sabine Fonderson</h3>
+        <p class="author-footer-bio">
+          Practising General Practitioner (Rotterdam), Health AI developer, and international keynote speaker delivering unfiltered talks on clinical AI, patient safety, and medical leadership.
+        </p>
+        <div class="author-footer-ctas">
+          <a href="../index.html#book" class="btn btn-primary">Book for Speaking &rarr;</a>
+          <a href="https://ai.drfonderson.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore AI Tools &nearr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
 </body>
 </html>

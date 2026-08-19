@@ -1,153 +1,368 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Shortcut to Clarity: How to protect your time and registration using snippets Part 2.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shortcut to Clarity: How to protect your time and registration using snippets Part 2. | Dr. Sabine Fonderson</title>
+  <meta name="description" content="Shortcut to Clarity: How to protect your time and registration using snippets Part 2. - Insights on healthcare, medical leadership, and clinical AI by Dr. Sabine Fonderson.">
+  <meta name="author" content="Dr. Sabine Fonderson">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --background: #f6f0e6;
+      --foreground: #303535;
+      --card: #fbf7ef;
+      --primary: #174a47;
+      --primary-hover: #2c625e;
+      --primary-foreground: #f6f0e6;
+      --accent: #c9785b;
+      --muted: #ece3d3;
+      --muted-foreground: #5f6b6a;
+      --border: #ddd0bb;
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0 auto;
-      width: 744px;
-      font-family: Source Serif Pro, serif;
-      line-height: 32px;
-      font-weight: 400;
-      color: rgba(0, 0, 0, 0.7);
-      font-size: 21px;
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      font-size: 1.125rem;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+      padding: 0;
     }
-    h1, h2, h3 {
-      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+
+    /* Sticky Editorial Header */
+    .article-header-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background-color: rgba(246, 240, 230, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    h1 a, h1 a:visited {
-      color: inherit;
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
-    h1 {
-      line-height: 48px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 42px;
-      margin: 32px 0 20px;
+
+    .back-link:hover {
+      color: var(--accent);
     }
-    h2 {
-      line-height: 32px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 26px;
-      margin: 28px 0;
-    }
-    h3 {
-      line-height: 28px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 21px;
-      margin: 24px 0;
-    }
-    p {
-      margin: 32px 0;
-    }
-    .created, .published {
-      color: rgba(0, 0, 0, 0.55);
-      font-size: 15px;
-      line-height: 15px;
-      margin: 20px 0;
-    }
-    .created + .published {
-      margin-top: -12px;
-    }
-    blockquote {
-      font-family: Georgia, Source Serif Pro, serif;
-      font-style: italic;
-      font-size: 24px;
-      line-height: 36px;
-      margin: 48px 120px;
-      text-align: center;
-    }
-    a {
-      word-wrap: break-word;
-      outline: none;
+
+    .header-cta {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      padding: 0.5rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
       text-decoration: none;
-      background-color: transparent;
-      border: 0;
-      color: #008CC9;
+      transition: all 0.2s ease;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .header-cta:hover {
+      background-color: var(--primary-hover);
     }
-    a:visited {
-      color: #8C68CB;
+
+    /* Article Container */
+    .article-container {
+      max-width: 760px;
+      margin: 3.5rem auto 6rem;
+      padding: 0 1.5rem;
     }
-    .center {
-      text-align: center;
+
+    /* Meta Info */
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
-    iframe {
-      display: block;
-      margin: 44px auto;
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background-color: rgba(201, 120, 91, 0.15);
+      color: var(--accent);
     }
-    *:not(pre) + pre, pre:first-of-type {
-      margin-top: 32px;
-      padding-top: 32px;
+
+    .article-date {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
     }
-    pre:only-of-type {
-      margin: 32px 0;
-      padding: 32px;
+
+    /* Main Title */
+    .article-main-title {
+      font-family: var(--font-serif);
+      font-size: 2.35rem;
+      line-height: 1.25;
+      color: var(--foreground);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
-    pre {
-      background: #F3F6F8;
-      overflow-x: auto;
-      display: block;
-      font-size: 13px;
-      font-family: monospace;
-      line-height: 13px;
-      padding: 0 32px 32px;
-      white-space: pre;
+
+    @media (min-width: 768px) {
+      .article-main-title {
+        font-size: 2.85rem;
+      }
     }
-    a.embedded {
-      background: #F3F6F8;
-      display: block;
-      padding: 32px;
-      margin: 32px 0;
+
+    .author-byline {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
     }
-    img {
-      height: auto;
-      max-width: 100%;
-    }
-    .slate-image-embed__resize-full-width img {
-      width: 100%;
-    }
-    .series-logo {
+
+    .author-img {
       width: 48px;
       height: 48px;
-      box-sizing: border-box;
-      background-clip: content-box;
-      border: 4px solid transparent;
-      border-radius: 6px;
-      object-fit: scale-down;
-      float: left;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
     }
-    .series-title {
-      font-size: 16px;
-      font-weight: 600;
-      vertical-align: top;
+
+    .author-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--foreground);
     }
-    .series-description {
-      color: rgba(0,0,0,.6);
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 20px;
+
+    .author-role {
+      font-size: 0.825rem;
+      color: var(--muted-foreground);
     }
-    div {
-      margin: 32px 0;
+
+    /* Content Typography */
+    .article-content {
+      color: var(--foreground);
+    }
+
+    .article-content p {
+      margin-bottom: 1.65rem;
+      color: #373f3e;
+      font-size: 1.125rem;
+      line-height: 1.85;
+    }
+
+    .article-content h1, 
+    .article-content h2, 
+    .article-content h3 {
+      font-family: var(--font-serif);
+      color: var(--foreground);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .article-content h2 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h3 {
+      font-size: 1.4rem;
+    }
+
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    .article-content ul, 
+    .article-content ol {
+      margin-bottom: 1.75rem;
+      padding-left: 1.75rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.65rem;
+      color: #373f3e;
+    }
+
+    .article-content a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .article-content a:hover {
+      color: var(--accent);
+    }
+
+    /* Author Footer Card */
+    .author-footer-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.25rem;
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .author-footer-card {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .author-footer-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      flex-shrink: 0;
+    }
+
+    .author-footer-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--foreground);
+      margin-bottom: 0.35rem;
+    }
+
+    .author-footer-bio {
+      font-size: 0.9rem;
+      color: var(--muted-foreground);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .author-footer-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--foreground);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
     }
   </style>
 </head>
 <body>
-    <img class="series-logo" src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY" />
+
+  <!-- Top Bar -->
+  <div class="article-header-bar">
+    <a href="../index.html#articles" class="back-link">
+      &larr; Back to Dr. Sabine Fonderson Portfolio
+    </a>
+    <a href="../index.html#book" class="header-cta">
+      Book Sabine for Speaking
+    </a>
+  </div>
+
+  <!-- Main Article Body -->
+  <main class="article-container">
+    <div class="article-meta-row">
+      <span class="badge">AI & Clinical Tech</span>
+      <span class="article-date">2025</span>
+    </div>
+
+    <h1 class="article-main-title">Shortcut to Clarity: How to protect your time and registration using snippets Part 2.</h1>
+
+    <div class="author-byline">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-img">
+      <div>
+        <p class="author-name">Dr. Sabine Fonderson</p>
+        <p class="author-role">Physician · Health AI Innovator · Keynote Speaker</p>
+      </div>
+    </div>
+
+    <article class="article-content">
+      <img src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY"></img>
     <h3>
-      <span class="series-title">The real doctor </span>
+      <span>The real doctor </span>
       </br>
-      <span class="series-description">Helping doctors rebuild their careers after immigration.</span>
+      <span>Helping doctors rebuild their careers after immigration.</span>
     </h3>
-    <img src="https://media.licdn.com/mediaD5612AQGNCm01lD9daQ" alt="" title="" />
-      <h1><a href="https://www.linkedin.com/pulse/shortcut-clarity-how-protect-your-time-registration-using-fonderson-gtdxc">Shortcut to Clarity: How to protect your time and registration using snippets Part 2.</a></h1>
-    <p class="created">Created on 2025-04-14 22:03</p>
-  <p class="published">Published on 2025-04-15 09:45</p>
-  <div><h3>What I Learned as a Claims Doctor</h3><p>Before I had the job I wanted, I took the job I needed. For a while, I worked as a <strong>claims doctor</strong>. My task was to speak to people who had become ill during their holidays and wanted compensation. I’d take their story over the phone and write a structured, neutral report to support or deny the claim.</p><p>It wasn’t glamorous work. Most complaints were like:</p><blockquote><p>“There were flies at the buffet.” “I ate the prawns, and the next day I was sick in bed.” “I lost two days of my vacation lying down with stomach cramps.”</p></blockquote><p>It was my job to stay neutral, ask detailed questions, assess their medical history and timeline, and then write a clinical and unbiased report.</p><p>It wasn’t always easy to listen with empathy and document with precision. Most times I felt the claimants had some prepared document at hand and were reading it out over the phone. Looking back, the claims were very similarto each other except for the destinations claimants ended up being ill at. Despite my own reservations on the authenticity of some claims, doing this job taught me something I now teach others: <strong>The words we choose, especially in writing, can shape someone’s entire experience of being heard.</strong></p><p>Months later, I met another doctor doing the same work. I asked him, “Why this job?” He said:</p><blockquote><p>“I used to work as a locum doctor internal medicine. But I got tired of always being afraid of complaints. It got difficult because of the language. It felt like everything I said could be misunderstood. This job felt safer.”</p></blockquote><p>His story stayed with me. Because it reminded me that so many internationally trained doctors know what they’re doing, but struggle to prove it on paper. Not because they’re not good enough. But because <strong>writing in a second language slows you down and increases your risk of being misunderstood.</strong></p><h3>Why SOEP + Snippets Matter So Much</h3><p>SOEP stands for Subjective, Objective, Evaluation, Plan and is used to create a medically universal clinical structure. For immigrant doctors, it can be a <strong>lifeline</strong>. A way to bring clarity and confidence to documentation especially in any clinical situation.</p><p>But when you’re switching between languages all day long for instance, listening in Dutch, thinking in your mother tongue, and documenting back in Dutch (something I do every day) you reach a point where your brain just can’t keep up.</p><p>That’s when mistakes happen. You want to take a shortcut and omit something that was quite complex to put down in writing leads to incomplete notes. Or worse , something important gets left out and another colleague is left to figure it out.</p><p>That’s why I now use <strong>TextExpander. A quick disclaimer:</strong> <em>I am not sponsored  by TextExpander. I simply use it and recommend it because it with this tool I can:</em></p><ul><li><p>Write faster and more clearly</p></li><li><p>Use legally sound and medically accurate phrasing</p></li><li><p>Avoid writing the same sentence 20 times a week</p></li><li><p>Reduce my cognitive load so I can focus on the patient or other administrative tasks.</p></li></ul><h3>Examples of snippets in Medical Claims industry: </h3><p>Here are a few templates I’ve used or adapted in my own work. Whether you’re in clinical practice, writing reports, or handling telephone triage, these can save you time and protect your practice.</p><h3>.travelillness</h3><p><strong><em>S:</em></strong><em> Patient reports gastrointestinal symptoms (diarrhea, nausea, vomiting, abdominal cramps) after consuming food at [location] during travel. </em><strong><em>O:</em></strong><em> No formal assessment abroad. Self-managed using over-the-counter meds. </em><strong><em>E:</em></strong><em> Likely foodborne gastroenteritis. </em><strong><em>P:</em></strong><em> Symptoms resolved. No further treatment required. Advised to seek timely care in future cases.</em></p><h3>.claimsstructure</h3><p><strong><em>Incident Date:</em></strong><em> [insert date] </em><strong><em>Assessment Date:</em></strong><em> [insert date] </em><strong><em>Consultation Type:</em></strong><em> Telephone </em><strong><em>Summary:</em></strong><em> Patient describes onset of symptoms on [date], during stay at [location]. Reports food exposure and subsequent illness. No formal review. Symptoms lasted [X] days. </em><strong><em>Opinion:</em></strong><em> Clinical picture suggests self-limiting GI illness. Full recovery reported.</em></p><h3>.claimimpact</h3><p><em>Due to illness, patient was unable to attend planned excursions or enjoy key parts of the holiday. No formal leave required, but rest was necessary. No permanent limitations reported.</em></p><h3>Bonus: Bilingual Snippet Templates (EN + NL)</h3><p>Because many of you work across two languages, Dutch and English, I’ve created a downloadable file of <strong>ready-to-use bilingual snippets</strong> that match real-world clinical documentation.</p><p>Includes:</p><ul><li><p>SOEP templates for travel-related illness</p></li><li><p>Structuring telephone assessments</p></li><li><p>Claim-related documentation</p></li><li><p>Impact and outcome descriptions</p></li></ul><p>All in English and Dutch, side by side. If you want a copy send me a DM.</p><h3>Let’s Build a Snippet Library — Together</h3><p>I’ve also started compiling a <strong>Real Doctor Snippet Library</strong>, a growing, community-driven archive of shortcodes and templates written by doctors working in their second language.</p><p>Want to contribute your favorite?</p><ul><li><p>A phrase that makes documentation easier?</p></li><li><p>A line you always use in referrals?</p></li><li><p>A disclaimer that keeps you safe?</p></li></ul><p><strong>Comment on LinkedIn using #RealDoctorSnippet or send me a DM.</strong> I’ll include your contribution (with credit) in the next update.</p><h3>Final Thought: Writing Is Not Where You Prove You're a Doctor. It's Where You Protect Yourself.</h3><p>Your words may be the only part of the consultation that gets scrutinised. Snippets are not shortcuts because you’re lazy. They’re <strong>structure</strong> because you care.</p><p>You are still <em>The Real Doctor</em>. Let your notes reflect that.</p><p></p></div>
+    <img src="https://media.licdn.com/mediaD5612AQGNCm01lD9daQ" alt="" title=""></img>
+      
+    <p>Created on 2025-04-14 22:03</p>
+  <p>Published on 2025-04-15 09:45</p>
+  <div><h3>What I Learned as a Claims Doctor</h3><p>Before I had the job I wanted, I took the job I needed. For a while, I worked as a <strong>claims doctor</strong>. My task was to speak to people who had become ill during their holidays and wanted compensation. I’d take their story over the phone and write a structured, neutral report to support or deny the claim.</p><p>It wasn’t glamorous work. Most complaints were like:</p><blockquote><p>“There were flies at the buffet.” “I ate the prawns, and the next day I was sick in bed.” “I lost two days of my vacation lying down with stomach cramps.”</p></blockquote><p>It was my job to stay neutral, ask detailed questions, assess their medical history and timeline, and then write a clinical and unbiased report.</p><p>It wasn’t always easy to listen with empathy and document with precision. Most times I felt the claimants had some prepared document at hand and were reading it out over the phone. Looking back, the claims were very similarto each other except for the destinations claimants ended up being ill at. Despite my own reservations on the authenticity of some claims, doing this job taught me something I now teach others: <strong>The words we choose, especially in writing, can shape someone’s entire experience of being heard.</strong></p><p>Months later, I met another doctor doing the same work. I asked him, “Why this job?” He said:</p><blockquote><p>“I used to work as a locum doctor internal medicine. But I got tired of always being afraid of complaints. It got difficult because of the language. It felt like everything I said could be misunderstood. This job felt safer.”</p></blockquote><p>His story stayed with me. Because it reminded me that so many internationally trained doctors know what they’re doing, but struggle to prove it on paper. Not because they’re not good enough. But because <strong>writing in a second language slows you down and increases your risk of being misunderstood.</strong></p><h3>Why SOEP + Snippets Matter So Much</h3><p>SOEP stands for Subjective, Objective, Evaluation, Plan and is used to create a medically universal clinical structure. For immigrant doctors, it can be a <strong>lifeline</strong>. A way to bring clarity and confidence to documentation especially in any clinical situation.</p><p>But when you’re switching between languages all day long for instance, listening in Dutch, thinking in your mother tongue, and documenting back in Dutch (something I do every day) you reach a point where your brain just can’t keep up.</p><p>That’s when mistakes happen. You want to take a shortcut and omit something that was quite complex to put down in writing leads to incomplete notes. Or worse , something important gets left out and another colleague is left to figure it out.</p><p>That’s why I now use <strong>TextExpander. A quick disclaimer:</strong> <em>I am not sponsored  by TextExpander. I simply use it and recommend it because it with this tool I can:</em></p><ul><li><p>Write faster and more clearly</p></li><li><p>Use legally sound and medically accurate phrasing</p></li><li><p>Avoid writing the same sentence 20 times a week</p></li><li><p>Reduce my cognitive load so I can focus on the patient or other administrative tasks.</p></li></ul><h3>Examples of snippets in Medical Claims industry: </h3><p>Here are a few templates I’ve used or adapted in my own work. Whether you’re in clinical practice, writing reports, or handling telephone triage, these can save you time and protect your practice.</p><h3>.travelillness</h3><p><strong><em>S:</em></strong><em> Patient reports gastrointestinal symptoms (diarrhea, nausea, vomiting, abdominal cramps) after consuming food at [location] during travel. </em><strong><em>O:</em></strong><em> No formal assessment abroad. Self-managed using over-the-counter meds. </em><strong><em>E:</em></strong><em> Likely foodborne gastroenteritis. </em><strong><em>P:</em></strong><em> Symptoms resolved. No further treatment required. Advised to seek timely care in future cases.</em></p><h3>.claimsstructure</h3><p><strong><em>Incident Date:</em></strong><em> [insert date] </em><strong><em>Assessment Date:</em></strong><em> [insert date] </em><strong><em>Consultation Type:</em></strong><em> Telephone </em><strong><em>Summary:</em></strong><em> Patient describes onset of symptoms on [date], during stay at [location]. Reports food exposure and subsequent illness. No formal review. Symptoms lasted [X] days. </em><strong><em>Opinion:</em></strong><em> Clinical picture suggests self-limiting GI illness. Full recovery reported.</em></p><h3>.claimimpact</h3><p><em>Due to illness, patient was unable to attend planned excursions or enjoy key parts of the holiday. No formal leave required, but rest was necessary. No permanent limitations reported.</em></p><h3>Bonus: Bilingual Snippet Templates (EN + NL)</h3><p>Because many of you work across two languages, Dutch and English, I’ve created a downloadable file of <strong>ready-to-use bilingual snippets</strong> that match real-world clinical documentation.</p><p>Includes:</p><ul><li><p>SOEP templates for travel-related illness</p></li><li><p>Structuring telephone assessments</p></li><li><p>Claim-related documentation</p></li><li><p>Impact and outcome descriptions</p></li></ul><p>All in English and Dutch, side by side. If you want a copy send me a DM.</p><h3>Let’s Build a Snippet Library — Together</h3><p>I’ve also started compiling a <strong>Real Doctor Snippet Library</strong>, a growing, community-driven archive of shortcodes and templates written by doctors working in their second language.</p><p>Want to contribute your favorite?</p><ul><li><p>A phrase that makes documentation easier?</p></li><li><p>A line you always use in referrals?</p></li><li><p>A disclaimer that keeps you safe?</p></li></ul><p><strong>Comment on LinkedIn using #RealDoctorSnippet or send me a DM.</strong> I’ll include your contribution (with credit) in the next update.</p><h3>Final Thought: Writing Is Not Where You Prove You're a Doctor. It's Where You Protect Yourself.</h3><p>Your words may be the only part of the consultation that gets scrutinised. Snippets are not shortcuts because you’re lazy. They’re <strong>structure</strong> because you care.</p><p>You are still <em>The Real Doctor</em>. Let your notes reflect that.</p></div>
+    </article>
+
+    <!-- Author Callout Box -->
+    <div class="author-footer-card">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-footer-img">
+      <div>
+        <h3 class="author-footer-title">About Dr. Sabine Fonderson</h3>
+        <p class="author-footer-bio">
+          Practising General Practitioner (Rotterdam), Health AI developer, and international keynote speaker delivering unfiltered talks on clinical AI, patient safety, and medical leadership.
+        </p>
+        <div class="author-footer-ctas">
+          <a href="../index.html#book" class="btn btn-primary">Book for Speaking &rarr;</a>
+          <a href="https://ai.drfonderson.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore AI Tools &nearr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
 </body>
 </html>

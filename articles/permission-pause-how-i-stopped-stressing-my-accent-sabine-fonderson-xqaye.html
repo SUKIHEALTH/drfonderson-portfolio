@@ -1,153 +1,368 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Permission to Pause: How I Stopped Stressing About My Accent in Consultations</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permission to Pause: How I Stopped Stressing About My Accent in Consultations | Dr. Sabine Fonderson</title>
+  <meta name="description" content="Permission to Pause: How I Stopped Stressing About My Accent in Consultations - Insights on healthcare, medical leadership, and clinical AI by Dr. Sabine Fonderson.">
+  <meta name="author" content="Dr. Sabine Fonderson">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --background: #f6f0e6;
+      --foreground: #303535;
+      --card: #fbf7ef;
+      --primary: #174a47;
+      --primary-hover: #2c625e;
+      --primary-foreground: #f6f0e6;
+      --accent: #c9785b;
+      --muted: #ece3d3;
+      --muted-foreground: #5f6b6a;
+      --border: #ddd0bb;
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0 auto;
-      width: 744px;
-      font-family: Source Serif Pro, serif;
-      line-height: 32px;
-      font-weight: 400;
-      color: rgba(0, 0, 0, 0.7);
-      font-size: 21px;
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      font-size: 1.125rem;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+      padding: 0;
     }
-    h1, h2, h3 {
-      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+
+    /* Sticky Editorial Header */
+    .article-header-bar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background-color: rgba(246, 240, 230, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    h1 a, h1 a:visited {
-      color: inherit;
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
-    h1 {
-      line-height: 48px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 42px;
-      margin: 32px 0 20px;
+
+    .back-link:hover {
+      color: var(--accent);
     }
-    h2 {
-      line-height: 32px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 26px;
-      margin: 28px 0;
-    }
-    h3 {
-      line-height: 28px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.85);
-      font-size: 21px;
-      margin: 24px 0;
-    }
-    p {
-      margin: 32px 0;
-    }
-    .created, .published {
-      color: rgba(0, 0, 0, 0.55);
-      font-size: 15px;
-      line-height: 15px;
-      margin: 20px 0;
-    }
-    .created + .published {
-      margin-top: -12px;
-    }
-    blockquote {
-      font-family: Georgia, Source Serif Pro, serif;
-      font-style: italic;
-      font-size: 24px;
-      line-height: 36px;
-      margin: 48px 120px;
-      text-align: center;
-    }
-    a {
-      word-wrap: break-word;
-      outline: none;
+
+    .header-cta {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      padding: 0.5rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
       text-decoration: none;
-      background-color: transparent;
-      border: 0;
-      color: #008CC9;
+      transition: all 0.2s ease;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .header-cta:hover {
+      background-color: var(--primary-hover);
     }
-    a:visited {
-      color: #8C68CB;
+
+    /* Article Container */
+    .article-container {
+      max-width: 760px;
+      margin: 3.5rem auto 6rem;
+      padding: 0 1.5rem;
     }
-    .center {
-      text-align: center;
+
+    /* Meta Info */
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
-    iframe {
-      display: block;
-      margin: 44px auto;
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background-color: rgba(201, 120, 91, 0.15);
+      color: var(--accent);
     }
-    *:not(pre) + pre, pre:first-of-type {
-      margin-top: 32px;
-      padding-top: 32px;
+
+    .article-date {
+      font-size: 0.85rem;
+      color: var(--muted-foreground);
     }
-    pre:only-of-type {
-      margin: 32px 0;
-      padding: 32px;
+
+    /* Main Title */
+    .article-main-title {
+      font-family: var(--font-serif);
+      font-size: 2.35rem;
+      line-height: 1.25;
+      color: var(--foreground);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
     }
-    pre {
-      background: #F3F6F8;
-      overflow-x: auto;
-      display: block;
-      font-size: 13px;
-      font-family: monospace;
-      line-height: 13px;
-      padding: 0 32px 32px;
-      white-space: pre;
+
+    @media (min-width: 768px) {
+      .article-main-title {
+        font-size: 2.85rem;
+      }
     }
-    a.embedded {
-      background: #F3F6F8;
-      display: block;
-      padding: 32px;
-      margin: 32px 0;
+
+    .author-byline {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
     }
-    img {
-      height: auto;
-      max-width: 100%;
-    }
-    .slate-image-embed__resize-full-width img {
-      width: 100%;
-    }
-    .series-logo {
+
+    .author-img {
       width: 48px;
       height: 48px;
-      box-sizing: border-box;
-      background-clip: content-box;
-      border: 4px solid transparent;
-      border-radius: 6px;
-      object-fit: scale-down;
-      float: left;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
     }
-    .series-title {
-      font-size: 16px;
-      font-weight: 600;
-      vertical-align: top;
+
+    .author-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--foreground);
     }
-    .series-description {
-      color: rgba(0,0,0,.6);
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 20px;
+
+    .author-role {
+      font-size: 0.825rem;
+      color: var(--muted-foreground);
     }
-    div {
-      margin: 32px 0;
+
+    /* Content Typography */
+    .article-content {
+      color: var(--foreground);
+    }
+
+    .article-content p {
+      margin-bottom: 1.65rem;
+      color: #373f3e;
+      font-size: 1.125rem;
+      line-height: 1.85;
+    }
+
+    .article-content h1, 
+    .article-content h2, 
+    .article-content h3 {
+      font-family: var(--font-serif);
+      color: var(--foreground);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .article-content h2 {
+      font-size: 1.75rem;
+    }
+
+    .article-content h3 {
+      font-size: 1.4rem;
+    }
+
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    .article-content ul, 
+    .article-content ol {
+      margin-bottom: 1.75rem;
+      padding-left: 1.75rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.65rem;
+      color: #373f3e;
+    }
+
+    .article-content a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .article-content a:hover {
+      color: var(--accent);
+    }
+
+    /* Author Footer Card */
+    .author-footer-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.25rem;
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .author-footer-card {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .author-footer-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      flex-shrink: 0;
+    }
+
+    .author-footer-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--foreground);
+      margin-bottom: 0.35rem;
+    }
+
+    .author-footer-bio {
+      font-size: 0.9rem;
+      color: var(--muted-foreground);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .author-footer-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--foreground);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
     }
   </style>
 </head>
 <body>
-    <img class="series-logo" src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY" />
+
+  <!-- Top Bar -->
+  <div class="article-header-bar">
+    <a href="../index.html#articles" class="back-link">
+      &larr; Back to Dr. Sabine Fonderson Portfolio
+    </a>
+    <a href="../index.html#book" class="header-cta">
+      Book Sabine for Speaking
+    </a>
+  </div>
+
+  <!-- Main Article Body -->
+  <main class="article-container">
+    <div class="article-meta-row">
+      <span class="badge">Physician Wellbeing</span>
+      <span class="article-date">2025</span>
+    </div>
+
+    <h1 class="article-main-title">Permission to Pause: How I Stopped Stressing About My Accent in Consultations</h1>
+
+    <div class="author-byline">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-img">
+      <div>
+        <p class="author-name">Dr. Sabine Fonderson</p>
+        <p class="author-role">Physician · Health AI Innovator · Keynote Speaker</p>
+      </div>
+    </div>
+
+    <article class="article-content">
+      <img src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY"></img>
     <h3>
-      <span class="series-title">The real doctor </span>
+      <span>The real doctor </span>
       </br>
-      <span class="series-description">Helping doctors rebuild their careers after immigration.</span>
+      <span>Helping doctors rebuild their careers after immigration.</span>
     </h3>
-    <img src="https://media.licdn.com/mediaD4E12AQGJKebBOqPNsQ" alt="AI generated but depicts my consultations 70%  of the time " title="AI generated but depicts my consultations 70%  of the time " />
-      <h1><a href="https://www.linkedin.com/pulse/permission-pause-how-i-stopped-stressing-my-accent-sabine-fonderson-xqaye">Permission to Pause: How I Stopped Stressing About My Accent in Consultations</a></h1>
-    <p class="created">Created on 2025-04-28 09:01</p>
-  <p class="published">Published on 2025-04-30 11:45</p>
-  <div><p>When I call a patient from the waiting room, I already know what’s coming. The walk from my office to the waiting area is about 15 steps and during those 15 steps, my brain processes about 100 pieces of information. The patient's name, their age, their problem list, their medication, what time it is, whether I’m already running behind...</p><p>And then, my French brain kicks in. English is my first language, French my second and then Dutch. Somewhere between my office and the waiting room, I manage to add my French accent to their Dutch name. I call it out, and nine times out of ten, the patient has to correct me as they stand up.</p><p>It used to frustrate me. I'd start the consultation already feeling a bit defeated.</p><p>Now? I simply smile and say, as we walk back to my office: </p><blockquote><p><strong>"Your name sounds different when I say it with my French accent, right?"</strong> </p></blockquote><p>They laugh, I laugh and suddenly, we’re both human. The consultation starts on a lighter, more forgiving note.</p><hr><h3>It's okay to pause, laugh, or reframe</h3><p>Working as a doctor in your second or third language means you <em>will</em> miss things sometimes. For example, patients speaking in dialects I barely understand.</p><p>Before, I used to nod along, too scared to interrupt. Now, I look them straight in the eye and say: <strong>"I have no idea what you just said. Can you say it another way?"</strong></p><p>It stuns them for a second but then they <strong>reframe</strong>, <strong>slow down</strong>, and <strong>appreciate</strong> that I'm trying to understand them, not just rushing through the checklist. That's trust. And trust buys you the time and grace you need when language barriers sneak in.</p><hr><h3>Permission to Rewind (Even Mid-Sentence)</h3><p>Sometimes, when a patient starts telling me their complaints, my brain zooms ahead, trying to solve the puzzle before they've even finished. I piece things together too quickly, get excited, and end up giving a big explanation...</p><p>...only to realize the patient is staring at me, slightly confused.</p><p>Now I simply stop and say: </p><blockquote><p><strong>"Sorry, I was ranting — is this actually helpful for you? Or were you thinking about something else?"</strong></p></blockquote><p>Patients appreciate the honesty. You're not lecturing, you are on the path of shared-decision making which is a collaboration.</p><hr><h3>Starter Sentences for Doctors working in a second language</h3><p>Here are some of my favorite <em>"permission to pause"</em> sentences you can use when the consultation gets to a point you know you need to take a second:</p><ul><li><p><em>"Let me rephrase that, just to be sure we're on the same page."</em></p></li><li><p><em>"Sorry, I just had a brain-switch moment — can we go back one step?"</em></p></li><li><p><em>"I'm not sure I understood you correctly. Can you explain it one more time, in your own words?"</em></p></li><li><p><em>"Sometimes my second language brain gets creative — let me double-check with you."</em></p></li><li><p><em>"I might say this a little differently than you're used to — tell me if it sounds unclear."</em></p></li></ul><hr><h3>A Personal Resource for You</h3><p>If pausing and communicating more effectively with patients feels like an uphill battle, you're not alone. Two years ago, I self-published a short guide called <a href="https://www.amazon.com/Wheres-real-Doctor-confidence-competency-ebook/dp/B0C4K2L9XD/" target="_blank"><em>Where’s the Real Doctor? Confidence and Competency in Medicine</em></a>.</p><p>At the time, I was carrying the invisible weight of communicating in a second language — every consultation felt like a high-stakes balancing act between knowledge and expression. This book was my way of reminding myself (and now, others) that core skills like pausing, listening, and communicating with clarity are not “extras” — they are the foundation of true competency.</p><p>If you're looking for a practical, honest resource to help sharpen your skills and build real confidence, I invite you to take a look. You can find it <a href="https://www.amazon.com/Wheres-real-Doctor-confidence-competency-ebook/dp/B0C4K2L9XD/" target="_blank">here</a>.</p><hr><h3>Final Thought</h3><p>Working in medicine in a second (or third) language isn't about speaking perfectly. It's about listening carefully, laughing a little, and giving yourself permission to pause when you need it.</p><p>Patients don’t want perfect doctors. They want real ones.</p><p>And being real with an accent, pauses, rewinds and all is more powerful than you think.</p><p></p><p>If you enjoy these newsletters and would like to share, contribute, or access more of my resources, feel free to send me a message or check out <a href="https://linktr.ee/sabinefonderson" target="_blank">my bio</a>. I appreciate every single piece of feedback.</p></div>
+    <img src="https://media.licdn.com/mediaD4E12AQGJKebBOqPNsQ" alt="AI generated but depicts my consultations 70%  of the time " title="AI generated but depicts my consultations 70%  of the time "></img>
+      
+    <p>Created on 2025-04-28 09:01</p>
+  <p>Published on 2025-04-30 11:45</p>
+  <div><p>When I call a patient from the waiting room, I already know what’s coming. The walk from my office to the waiting area is about 15 steps and during those 15 steps, my brain processes about 100 pieces of information. The patient's name, their age, their problem list, their medication, what time it is, whether I’m already running behind...</p><p>And then, my French brain kicks in. English is my first language, French my second and then Dutch. Somewhere between my office and the waiting room, I manage to add my French accent to their Dutch name. I call it out, and nine times out of ten, the patient has to correct me as they stand up.</p><p>It used to frustrate me. I'd start the consultation already feeling a bit defeated.</p><p>Now? I simply smile and say, as we walk back to my office: </p><blockquote><p><strong>"Your name sounds different when I say it with my French accent, right?"</strong> </p></blockquote><p>They laugh, I laugh and suddenly, we’re both human. The consultation starts on a lighter, more forgiving note.</p><hr><h3>It's okay to pause, laugh, or reframe</h3><p>Working as a doctor in your second or third language means you <em>will</em> miss things sometimes. For example, patients speaking in dialects I barely understand.</p><p>Before, I used to nod along, too scared to interrupt. Now, I look them straight in the eye and say: <strong>"I have no idea what you just said. Can you say it another way?"</strong></p><p>It stuns them for a second but then they <strong>reframe</strong>, <strong>slow down</strong>, and <strong>appreciate</strong> that I'm trying to understand them, not just rushing through the checklist. That's trust. And trust buys you the time and grace you need when language barriers sneak in.</p><hr><h3>Permission to Rewind (Even Mid-Sentence)</h3><p>Sometimes, when a patient starts telling me their complaints, my brain zooms ahead, trying to solve the puzzle before they've even finished. I piece things together too quickly, get excited, and end up giving a big explanation...</p><p>...only to realize the patient is staring at me, slightly confused.</p><p>Now I simply stop and say: </p><blockquote><p><strong>"Sorry, I was ranting — is this actually helpful for you? Or were you thinking about something else?"</strong></p></blockquote><p>Patients appreciate the honesty. You're not lecturing, you are on the path of shared-decision making which is a collaboration.</p><hr><h3>Starter Sentences for Doctors working in a second language</h3><p>Here are some of my favorite <em>"permission to pause"</em> sentences you can use when the consultation gets to a point you know you need to take a second:</p><ul><li><p><em>"Let me rephrase that, just to be sure we're on the same page."</em></p></li><li><p><em>"Sorry, I just had a brain-switch moment — can we go back one step?"</em></p></li><li><p><em>"I'm not sure I understood you correctly. Can you explain it one more time, in your own words?"</em></p></li><li><p><em>"Sometimes my second language brain gets creative — let me double-check with you."</em></p></li><li><p><em>"I might say this a little differently than you're used to — tell me if it sounds unclear."</em></p></li></ul><hr><h3>A Personal Resource for You</h3><p>If pausing and communicating more effectively with patients feels like an uphill battle, you're not alone. Two years ago, I self-published a short guide called <a href="https://www.amazon.com/Wheres-real-Doctor-confidence-competency-ebook/dp/B0C4K2L9XD/" target="_blank"><em>Where’s the Real Doctor? Confidence and Competency in Medicine</em></a>.</p><p>At the time, I was carrying the invisible weight of communicating in a second language — every consultation felt like a high-stakes balancing act between knowledge and expression. This book was my way of reminding myself (and now, others) that core skills like pausing, listening, and communicating with clarity are not “extras” — they are the foundation of true competency.</p><p>If you're looking for a practical, honest resource to help sharpen your skills and build real confidence, I invite you to take a look. You can find it <a href="https://www.amazon.com/Wheres-real-Doctor-confidence-competency-ebook/dp/B0C4K2L9XD/" target="_blank">here</a>.</p><hr><h3>Final Thought</h3><p>Working in medicine in a second (or third) language isn't about speaking perfectly. It's about listening carefully, laughing a little, and giving yourself permission to pause when you need it.</p><p>Patients don’t want perfect doctors. They want real ones.</p><p>And being real with an accent, pauses, rewinds and all is more powerful than you think.</p><p>If you enjoy these newsletters and would like to share, contribute, or access more of my resources, feel free to send me a message or check out <a href="https://linktr.ee/sabinefonderson" target="_blank">my bio</a>. I appreciate every single piece of feedback.</p></div>
+    </article>
+
+    <!-- Author Callout Box -->
+    <div class="author-footer-card">
+      <img src="../assets/images/sabine-portrait.png" alt="Dr. Sabine Fonderson" class="author-footer-img">
+      <div>
+        <h3 class="author-footer-title">About Dr. Sabine Fonderson</h3>
+        <p class="author-footer-bio">
+          Practising General Practitioner (Rotterdam), Health AI developer, and international keynote speaker delivering unfiltered talks on clinical AI, patient safety, and medical leadership.
+        </p>
+        <div class="author-footer-ctas">
+          <a href="../index.html#book" class="btn btn-primary">Book for Speaking &rarr;</a>
+          <a href="https://ai.drfonderson.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore AI Tools &nearr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
 </body>
 </html>

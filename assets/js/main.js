@@ -348,11 +348,13 @@ function attachArticleModalListeners() {
           const parser = new DOMParser();
           const doc = parser.parseFromString(html, 'text/html');
           
-          // Remove scripts and style tags
-          doc.querySelectorAll('script, style').forEach(el => el.remove());
-          
-          let content = doc.body.innerHTML;
-          if (bodyEl) bodyEl.innerHTML = content;
+          const articleContentEl = doc.querySelector('.article-content');
+          if (articleContentEl) {
+            if (bodyEl) bodyEl.innerHTML = articleContentEl.innerHTML;
+          } else {
+            doc.querySelectorAll('script, style, .article-header-bar, .author-footer-card').forEach(el => el.remove());
+            if (bodyEl) bodyEl.innerHTML = doc.body.innerHTML;
+          }
         })
         .catch(err => {
           if (bodyEl) {
