@@ -1,0 +1,373 @@
+/* ==========================================================================
+   DR. SABINE FONDERSON - DESIGN SYSTEM & CORE STYLES
+   Exact Palette & Typography matching https://drfonderson.com
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Editorial Palette from drfonderson.com */
+  --background: #f6f0e6;
+  --foreground: #303535;
+  --card: #fbf7ef;
+  --card-foreground: #303535;
+  --primary: #174a47;
+  --primary-hover: #2c625e;
+  --primary-foreground: #f6f0e6;
+  --secondary: #ece3d3;
+  --secondary-foreground: #303535;
+  --accent: #c9785b;
+  --accent-hover: #b46549;
+  --accent-foreground: #f6f0e6;
+  --cream: #f6f0e6;
+  --cream-tint: #f1e9da;
+  --muted: #ece3d3;
+  --muted-foreground: #5f6b6a;
+  --border: #ddd0bb;
+  --border-subtle: rgba(221, 208, 187, 0.6);
+  --charcoal: #303535;
+  --shadow-sm: 0 2px 8px rgba(48, 53, 53, 0.05);
+  --shadow-md: 0 10px 30px -10px rgba(48, 53, 53, 0.12);
+  --shadow-lg: 0 20px 45px -15px rgba(23, 74, 71, 0.18);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-serif: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Container */
+  --container-max: 1240px;
+  --header-height: 80px;
+}
+
+[data-theme="dark"] {
+  --background: #121817;
+  --foreground: #f4eee3;
+  --card: #182220;
+  --card-foreground: #f4eee3;
+  --primary: #2e8b84;
+  --primary-hover: #3ca39b;
+  --primary-foreground: #121817;
+  --secondary: #1f2d2a;
+  --secondary-foreground: #f4eee3;
+  --accent: #e2876b;
+  --accent-hover: #f1987d;
+  --accent-foreground: #121817;
+  --cream: #121817;
+  --cream-tint: #16201e;
+  --muted: #1e2927;
+  --muted-foreground: #9db0ae;
+  --border: #293835;
+  --border-subtle: rgba(41, 56, 53, 0.7);
+  --charcoal: #f4eee3;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 10px 30px -10px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 45px -15px rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================================================================
+   Base & Reset
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(125, 152, 163, 0.06), transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(201, 120, 91, 0.06), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(23, 74, 71, 0.05), transparent 50%);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img, svg, video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* ==========================================================================
+   Typography & Editorial Tokens (as in drfonderson.com)
+   ========================================================================== */
+
+.editorial-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.editorial-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1.5px;
+  background-color: currentColor;
+}
+
+.editorial-title {
+  font-family: var(--font-serif);
+  color: var(--foreground);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ==========================================================================
+   Layout Containers & Wrappers
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.bg-cream-tint {
+  background-color: var(--cream-tint);
+}
+
+.bg-background {
+  background-color: var(--background);
+}
+
+.border-top {
+  border-top: 1px solid var(--border);
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--border);
+}
+
+/* ==========================================================================
+   Buttons & Interactive Elements
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  padding: 0.85rem 1.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 4px 12px rgba(23, 74, 71, 0.15);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(23, 74, 71, 0.25);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  transform: translateY(-2px);
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.btn-accent:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 0.5rem 1.15rem;
+  font-size: 0.8125rem;
+}
+
+/* ==========================================================================
+   Badges & Tags
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background-color: var(--secondary);
+  color: var(--primary);
+  border: 1px solid var(--border-subtle);
+}
+
+.badge-accent {
+  background-color: rgba(201, 120, 91, 0.12);
+  color: var(--accent);
+  border-color: rgba(201, 120, 91, 0.3);
+}
+
+.badge-outline {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--muted-foreground);
+}
+
+/* ==========================================================================
+   Card System
+   ========================================================================== */
+
+.card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   Section Headers
+   ========================================================================== */
+
+.section-header {
+  margin-bottom: 3.5rem;
+}
+
+.section-header.text-center {
+  text-align: center;
+}
+
+.section-header.text-center .editorial-eyebrow {
+  justify-content: center;
+}
+
+.section-header.text-center .editorial-eyebrow::before {
+  display: none;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+.section-subtitle {
+  color: var(--muted-foreground);
+  font-size: 1.125rem;
+  max-width: 650px;
+  line-height: 1.65;
+}
+
+.section-header.text-center .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,1232 @@
+/* ==========================================================================
+   COMPONENT STYLES - DR. SABINE FONDERSON PORTFOLIO
+   Enhanced for High-Conversion Speaking Inquiries & AI Solutions
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Navigation Header
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  padding: 1.25rem 0;
+}
+
+.site-header.scrolled {
+  background-color: rgba(246, 240, 230, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.85rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .site-header.scrolled {
+  background-color: rgba(18, 24, 23, 0.94);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+@media (min-width: 960px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--foreground);
+  opacity: 0.8;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.nav-link:hover, .nav-link.active {
+  opacity: 1;
+  color: var(--primary);
+}
+
+.nav-link-badge {
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: var(--card);
+}
+
+.theme-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.mobile-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--border);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+@media (min-width: 960px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
+/* Mobile Drawer */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 85%;
+  max-width: 380px;
+  height: 100vh;
+  background-color: var(--background);
+  border-left: 1px solid var(--border);
+  z-index: 101;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-nav.open {
+  right: 0;
+}
+
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-nav-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.mobile-nav-links .nav-link {
+  font-size: 1.15rem;
+  font-family: var(--font-serif);
+}
+
+/* --------------------------------------------------------------------------
+   2. Hero Section & Dual CTAs
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding-top: 8.5rem;
+  padding-bottom: 4rem;
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .hero-section {
+    padding-top: 9.5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 4rem;
+  }
+}
+
+.hero-eyebrow {
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-title {
+    font-size: 4.15rem;
+  }
+}
+
+.hero-name {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+/* Dual CTAs */
+.hero-dual-ctas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 600px) {
+  .hero-dual-ctas {
+    grid-template-columns: auto auto;
+    align-items: center;
+  }
+}
+
+.hero-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.hero-portrait-wrapper {
+  position: relative;
+  max-width: 360px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.portrait-frame {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: 0 18px 50px -20px rgba(23, 74, 71, 0.35);
+}
+
+.portrait-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 0.6s ease;
+}
+
+.portrait-frame:hover .portrait-img {
+  transform: scale(1.03);
+}
+
+.portrait-floating-card {
+  position: absolute;
+  bottom: -1.25rem;
+  left: 1.25rem;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1.25rem;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(8px);
+}
+
+.portrait-floating-card .card-tag {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
+}
+
+.portrait-floating-card .card-text {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   3. Trust Logo Bar / Marquee
+   -------------------------------------------------------------------------- */
+.trust-bar {
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background-color: var(--card);
+  margin-top: 3.5rem;
+}
+
+.trust-title {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted-foreground);
+  margin-bottom: 1.25rem;
+}
+
+.trust-logos-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.75rem 3rem;
+}
+
+.trust-logo-item {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--foreground);
+  opacity: 0.6;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.trust-logo-item:hover {
+  opacity: 1;
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   4. Authority & Pillars
+   -------------------------------------------------------------------------- */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .pillars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pillar-card {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.pillar-line {
+  width: 32px;
+  height: 2px;
+  background-color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.pillar-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.pillar-desc {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   5. Interactive Clinical AI Before & After Showcase
+   -------------------------------------------------------------------------- */
+.ai-interactive-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  margin-bottom: 3.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.before-after-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .before-after-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.comparison-box {
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  position: relative;
+}
+
+.comparison-box.before {
+  background-color: rgba(201, 120, 91, 0.08);
+  border: 1px dashed rgba(201, 120, 91, 0.4);
+}
+
+.comparison-box.after {
+  background-color: rgba(23, 74, 71, 0.08);
+  border: 1px solid var(--primary);
+}
+
+[data-theme="dark"] .comparison-box.after {
+  background-color: rgba(46, 139, 132, 0.12);
+}
+
+.comparison-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.comparison-box.before .comparison-tag {
+  color: var(--accent);
+}
+
+.comparison-box.after .comparison-tag {
+  color: var(--primary);
+}
+
+.comparison-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+  color: var(--foreground);
+}
+
+.comparison-list {
+  list-style: none;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  line-height: 1.45;
+}
+
+.comparison-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. AI & Tech Projects Grid
+   -------------------------------------------------------------------------- */
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  justify-content: center;
+}
+
+.filter-btn {
+  background-color: transparent;
+  border: 1px solid var(--border);
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filter-btn.active {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-header {
+  margin-bottom: 1rem;
+}
+
+.project-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.project-desc {
+  font-size: 0.925rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.project-impact {
+  background-color: var(--secondary);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  font-size: 0.85rem;
+  color: var(--foreground);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid var(--primary);
+}
+
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-tech-item {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  background-color: var(--background);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: var(--foreground);
+}
+
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+.project-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.project-link:hover {
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   7. TEDx Spotlight
+   -------------------------------------------------------------------------- */
+.tedx-banner {
+  background-color: var(--cream-tint);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 3.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .tedx-banner {
+    padding: 4.5rem 3.5rem;
+  }
+}
+
+.tedx-video-card {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  margin: 2.5rem auto 0;
+  max-width: 860px;
+  background-color: #000;
+}
+
+.tedx-video-card iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* --------------------------------------------------------------------------
+   8. Keynote Topics & Quick-Select
+   -------------------------------------------------------------------------- */
+.topics-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.topic-item {
+  padding: 2.25rem 0;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .topic-item {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}
+
+.topic-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.topic-item:hover .topic-title {
+  color: var(--primary);
+}
+
+.topic-summary {
+  font-size: 0.95rem;
+  color: var(--muted-foreground);
+  max-width: 700px;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.topic-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Featured Top Articles + Searchable Archive
+   -------------------------------------------------------------------------- */
+.featured-articles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  margin-bottom: 3.5rem;
+}
+
+@media (min-width: 860px) {
+  .featured-articles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.featured-article-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.featured-article-card:hover {
+  border-color: var(--primary);
+  border-top-color: var(--primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.featured-pill {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.articles-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .articles-toolbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.search-input-wrapper {
+  position: relative;
+  max-width: 320px;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 0.6rem 1.25rem 0.6rem 2.5rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: var(--primary);
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-foreground);
+  pointer-events: none;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.75rem;
+}
+
+.article-card {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+
+.article-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.article-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.article-card:hover .article-title {
+  color: var(--primary);
+}
+
+.article-excerpt {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+
+.article-cta {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: auto;
+  cursor: pointer;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. Lead Magnet Card (Free Clinical Tool / Newsletter)
+   -------------------------------------------------------------------------- */
+.lead-magnet-card {
+  background: linear-gradient(135deg, var(--card) 0%, var(--secondary) 100%);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.5rem;
+  margin: 4rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .lead-magnet-card {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+.lead-magnet-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--foreground);
+}
+
+.lead-magnet-desc {
+  color: var(--muted-foreground);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.lead-magnet-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 500px) {
+  .lead-magnet-form {
+    flex-direction: row;
+  }
+}
+
+.lead-magnet-input {
+  flex: 1;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.15rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  outline: none;
+}
+
+.lead-magnet-input:focus {
+  border-color: var(--primary);
+}
+
+/* --------------------------------------------------------------------------
+   11. Modal Reader for Full Articles
+   -------------------------------------------------------------------------- */
+.article-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.article-modal-backdrop.open {
+  display: flex;
+  opacity: 1;
+}
+
+.article-modal-container {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  max-width: 780px;
+  width: 100%;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  animation: fadeUp 0.3s ease;
+}
+
+.article-modal-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card);
+}
+
+.article-modal-close {
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.article-modal-close:hover {
+  background-color: var(--secondary);
+}
+
+.article-modal-body {
+  padding: 2.5rem 2.5rem;
+  overflow-y: auto;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: var(--foreground);
+}
+
+.article-modal-body h1, .article-modal-body h2, .article-modal-body h3 {
+  font-family: var(--font-serif);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+}
+
+.article-modal-body p {
+  margin-bottom: 1.25rem;
+  color: var(--muted-foreground);
+}
+
+.article-modal-footer {
+  padding: 1.25rem 2rem;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --------------------------------------------------------------------------
+   12. Timeline (Experience & Academic)
+   -------------------------------------------------------------------------- */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background-color: var(--border);
+}
+
+@media (min-width: 768px) {
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0;
+  left: 13px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  border: 3px solid var(--background);
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .timeline-dot {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-content {
+  margin-left: 50px;
+}
+
+@media (min-width: 768px) {
+  .timeline-item:nth-child(odd) .timeline-content {
+    margin-left: 0;
+    margin-right: 55%;
+    text-align: right;
+  }
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-left: 55%;
+    margin-right: 0;
+    text-align: left;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. Booking & Inquiry Form
+   -------------------------------------------------------------------------- */
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 992px) {
+  .booking-grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+  }
+}
+
+.booking-form {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.4rem;
+}
+
+.form-control {
+  width: 100%;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(23, 74, 71, 0.15);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* --------------------------------------------------------------------------
+   14. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 5rem 0 2.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.footer-brand-desc {
+  color: var(--muted-foreground);
+  font-size: 0.925rem;
+  line-height: 1.6;
+  margin-top: 0.75rem;
+  max-width: 360px;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav-link {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.footer-nav-link:hover {
+  color: var(--primary);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+  }
+}

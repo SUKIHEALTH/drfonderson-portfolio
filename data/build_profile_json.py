@@ -1,0 +1,225 @@
+import json
+import csv
+import io
+import os
+import zipfile
+
+profile_csv_path = r'C:\Users\SabineFonderson\antigravity\Basic_LinkedInDataExport_08-19-2026.zip\Profile.csv'
+export_zip_path = r'C:\Users\SabineFonderson\Downloads\Basic_LinkedInDataExport_09-02-2025.zip.zip'
+
+profile_data = {
+    "name": "Dr. Sabine Fonderson",
+    "degrees": "MD, MSc Paediatric Emergency Medicine, PhD Candidate",
+    "tagline": "The doctor who says what healthcare won't.",
+    "subheadline": "Practising GP, Health AI Founder & International Keynote Speaker",
+    "location": "Rotterdam, Netherlands",
+    "email": "sabine@drfonderson.com",
+    "websites": {
+        "speaker": "https://drfonderson.com",
+        "ai": "https://ai.drfonderson.com",
+        "practice": "https://huisartspraktijkmsf.nl",
+        "expatClinic": "https://expathealthclinic.com",
+        "linkedin": "https://www.linkedin.com/in/sabinefonderson/",
+        "twitter": "https://twitter.com/sabinefonderson"
+    },
+    "bioSummary": (
+        "I work the front line of medicine, so I know exactly where it breaks. "
+        "I take that reality to the stage, along with the AI, the smart snippets, and the hard ideas that can actually fix it."
+    ),
+    "story": (
+        "I practice medicine in a second language. That alone changes everything — how I document, how I communicate, and how I stay safe. "
+        "After years of navigating high-pressure clinics, long days, and clinical systems not built for multilingual doctors, I realized something had to change: "
+        "I didn't need to work harder, I needed to work smarter. So I started building AI patient simulators, smart snippets, and Chrome extensions designed to help doctors document faster, safer, and with more confidence. "
+        "I run my own general practice (Huisartspraktijk MSF) in Rotterdam, sit on the board of Zorggroep Rijnmond Dokters, advise on digital care pathways for Ksyos, and research child respiratory health at Erasmus MC. "
+        "I speak from the exam room, not a slide deck."
+    ),
+    "languages": [
+        {"name": "English", "level": "Native / Bilingual"},
+        {"name": "Dutch", "level": "Full Professional Proficiency (C2)"},
+        {"name": "French", "level": "Professional Working Proficiency"}
+    ],
+    "highlights": [
+        {"icon": "stethoscope", "title": "Practising GP", "desc": "Owner, Huisartspraktijk MSF — Rotterdam"},
+        {"icon": "sparkles", "title": "Health AI Builder", "desc": "AI Simulators, Smart Snippets & Clinical Tools"},
+        {"icon": "graduation-cap", "title": "PhD Candidate", "desc": "Erasmus MC — Child Health & Air Pollution"},
+        {"icon": "award", "title": "MSc Paediatric Emergency", "desc": "The University of Edinburgh"},
+        {"icon": "users", "title": "Board Member", "desc": "Zorggroep Rijnmond Dokters & Ksyos Advisor"},
+        {"icon": "mic", "title": "TEDx & Keynote Speaker", "desc": "TEDxHotelschool The Hague & Global Events"}
+    ],
+    "aiProjects": [
+        {
+            "id": "ai-patient-sim",
+            "title": "AI Patient Simulator for Clinical Training",
+            "tag": "AI Simulation & EdTech",
+            "badge": "Active Deployment",
+            "description": "Interactive, voice-and-text enabled AI patient personas designed to train internationally qualified medical doctors (BIG registration) in Dutch clinical culture, communication, and consultation structure.",
+            "impact": "Reduces exam prep anxiety, speeds up foreign doctor integration into the Dutch healthcare system, and simulates hundreds of acute & chronic scenarios.",
+            "tech": ["Python", "OpenAI / LLMs", "FastAPI", "Prompt Engineering", "Voice AI"],
+            "link": "https://ai.drfonderson.com",
+            "github": "https://github.com/sabinefonderson"
+        },
+        {
+            "id": "gp-smart-snippets",
+            "title": "GP Smart Snippets & Chrome Extension",
+            "tag": "Clinical Workflow & Efficiency",
+            "badge": "Daily Doctor Tool",
+            "description": "Browser extension and automated snippet engine built directly for clinicians to streamline electronic health record (EHR) note taking, multilingual consultation templates, and safe prescribing.",
+            "impact": "Saves 30+ minutes per clinic shift, prevents documentation fatigue, and minimizes medical clerical errors.",
+            "tech": ["JavaScript", "Chrome Extension API", "HTML/CSS", "TextExpander / Promedico"],
+            "link": "https://ai.drfonderson.com",
+            "github": "https://github.com/sabinefonderson"
+        },
+        {
+            "id": "medical-transcription-ai",
+            "title": "AI Medical Consultation Transcriber",
+            "tag": "Speech-to-Clinical-Note",
+            "badge": "Proprietary Prototype",
+            "description": "Automated medical speech-to-SOAP note generator tailored for multilingual consultations (Dutch/English/French) that captures clinical nuances and formats them into structured EHR records.",
+            "impact": "Allows doctors to maintain 100% eye contact and human connection with patients without staring at keyboard screens.",
+            "tech": ["Whisper AI", "NLP", "Python", "Medical Ontologies", "SOAP Structuring"],
+            "link": "https://ai.drfonderson.com",
+            "github": "https://github.com/sabinefonderson"
+        },
+        {
+            "id": "phdplanr",
+            "title": "PhDPlanR & Air Pollution Health Analytics",
+            "tag": "Data Science & Epidemiological Research",
+            "badge": "Academic Research",
+            "description": "Data analysis pipeline linking general practice pediatric respiratory consultations with geospatial environmental sensor air quality data (O3, NO2, PM2.5) across Rotterdam.",
+            "impact": "Unveils the real-world impact of socioeconomic factors and urban pollution on pediatric acute emergency and GP presentations.",
+            "tech": ["Python", "R", "Pandas", "Geospatial Analysis", "Time-Series Regression"],
+            "link": "https://erasmusmc.nl",
+            "github": "https://github.com/sabinefonderson"
+        }
+    ],
+    "speakingTopics": [
+        {
+            "title": "AI Won't Replace Doctors. Doctors Who Ignore It Will Be Replaced.",
+            "category": "Healthcare Innovation & AI",
+            "summary": "A clear-eyed look at where AI actually belongs in medicine, where it's already failing patients, and what every clinical leader needs to decide before the technology decides for them.",
+            "audience": "Healthcare Executives, Hospital Boards, Tech Summits, Medical Associations",
+            "tags": ["Healthcare Innovation", "AI in Medicine", "Future of Care"]
+        },
+        {
+            "title": "The Power of Humour in the Art of Medicine",
+            "category": "TEDx Keynote",
+            "summary": "AI should take the data and the admin off our plates, so doctors can hand empathy, humour, and the human moment back to the patient in front of them.",
+            "audience": "Conferences, Universities, Leadership Retreats",
+            "tags": ["Empathy", "Doctor-Patient Bond", "TEDx"]
+        },
+        {
+            "title": "Your Patients Don't Trust You. Here's Why.",
+            "category": "Patient Safety & Leadership",
+            "summary": "The hard truth about why patients quietly walk away from healthcare systems, and what it takes to rebuild clinical trust in a system optimized for everything except the human in the room.",
+            "audience": "Clinical Directors, Patient Experience Officers, Health Policy Panels",
+            "tags": ["Patient Trust", "Systemic Reform", "Safety"]
+        },
+        {
+            "title": "Stop Waiting for Permission: Breaking the Healthcare Ceiling",
+            "category": "Women in Leadership & Tech",
+            "summary": "How women and international professionals in medicine and business get sidelined, and the unglamorous, tactical moves that actually break through barriers.",
+            "audience": "Women in STEM/Medicine, Entrepreneurship Networks, Keynotes",
+            "tags": ["Leadership", "Diversity", "Career Reinvention"]
+        },
+        {
+            "title": "Digital Health Is Burning Out the People It Promised to Help",
+            "category": "Digital Health & Burnout",
+            "summary": "Why more screens, portals, and alerts are driving clinicians out of the workforce, and how to design humane digital health tools that restore the joy of medicine.",
+            "audience": "HealthTech Founders, UX/Product Teams, Hospital CIOs",
+            "tags": ["Burnout Prevention", "Health Tech UX", "EHR Optimization"]
+        }
+    ],
+    "experience": [
+        {
+            "role": "General Practitioner & Practice Owner",
+            "organization": "Huisartspraktijk MSF / Huisartspraktijk Fonderson",
+            "period": "2024 - Present",
+            "location": "Rotterdam / Hoogvliet, Netherlands",
+            "description": "Leading an independent general medical practice serving a diverse urban population with modernized digital workflows, patient-centric consultations, and AI-assisted clinical administration."
+        },
+        {
+            "role": "PhD Researcher (Child Respiratory Health & Air Pollution)",
+            "organization": "Erasmus MC (University Medical Center Rotterdam)",
+            "period": "2019 - Present",
+            "location": "Rotterdam, Netherlands",
+            "description": "Conducting epidemiological research investigating how air pollution, environmental triggers, and socioeconomic disparities affect childhood illness and GP consultation rates."
+        },
+        {
+            "role": "Board Member & Advisory Board Member",
+            "organization": "Zorggroep Rijnmond Dokters & Ksyos Digital Care",
+            "period": "2023 - Present",
+            "location": "Netherlands",
+            "description": "Shaping regional healthcare governance, digital transformation, primary care policies, and digital care pathway integration."
+        },
+        {
+            "role": "President",
+            "organization": "VBGA (Vereniging Buitenlands Gediplomeerde Artsen)",
+            "period": "2023 - 2024",
+            "location": "Delft, Netherlands",
+            "description": "Led the national association for foreign medical doctors in the Netherlands, championing BIG registration streamlining, peer mentorship, and system integration."
+        },
+        {
+            "role": "Founder & Chief Medical Officer",
+            "organization": "Expat Health Clinic / HelloDoc",
+            "period": "2018 - 2024",
+            "location": "The Hague / Rotterdam",
+            "description": "Founded dedicated multilingual telehealth and clinic services serving thousands of international expats and university students across the Netherlands."
+        },
+        {
+            "role": "Emergency Medicine Physician (A&E)",
+            "organization": "UK National Health Service (NHS)",
+            "period": "UK",
+            "location": "United Kingdom",
+            "description": "Front-line acute clinical care in high-volume NHS accident and emergency departments, handling pediatric and adult acute emergencies."
+        }
+    ],
+    "education": [
+        {
+            "institution": "The University of Edinburgh",
+            "degree": "MSc in Paediatric Emergency Medicine",
+            "years": "2014 - 2018",
+            "notes": "Specialized in acute clinical decision making, pediatric trauma, resuscitation, and evidence-based pediatric healthcare."
+        },
+        {
+            "institution": "Leiden University",
+            "degree": "Medical Doctor (MD) / Geneeskunde",
+            "years": "1998 - 2006",
+            "notes": "Comprehensive clinical medicine, surgical rotations, and primary care training in the Dutch medical system."
+        },
+        {
+            "institution": "Erasmus University Rotterdam",
+            "degree": "GP Specialty & Clinical Research (AIOTHO)",
+            "years": "2019 - 2023",
+            "notes": "Dual track combining General Practice residency with doctoral epidemiological research."
+        }
+    ]
+}
+
+# Save profile.json
+with open('data/profile.json', 'w', encoding='utf-8') as f:
+    json.dump(profile_data, f, indent=2)
+
+# Load articles.json
+articles = []
+if os.path.exists('data/articles.json'):
+    with open('data/articles.json', 'r', encoding='utf-8') as f:
+        articles = json.load(f)
+
+# Generate portfolio-data.js
+js_content = f"""// Structured Portfolio Data for Dr. Sabine Fonderson
+// Synchronized with LinkedIn exports, drfonderson.com, and published articles
+
+const PORTFOLIO_DATA = {json.dumps(profile_data, indent=2)};
+
+const ARTICLES_DATA = {json.dumps(articles, indent=2)};
+
+if (typeof window !== 'undefined') {{
+  window.PORTFOLIO_DATA = PORTFOLIO_DATA;
+  window.ARTICLES_DATA = ARTICLES_DATA;
+}}
+"""
+
+with open('assets/js/portfolio-data.js', 'w', encoding='utf-8') as f:
+    f.write(js_content)
+
+print("Generated data/profile.json and assets/js/portfolio-data.js successfully.")

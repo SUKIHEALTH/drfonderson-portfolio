@@ -1,0 +1,153 @@
+<html>
+<head>
+  <title>How I build a Situgram-helper app and saved 60 minutes on a learning assessment.</title>
+  <style>
+    body {
+      margin: 0 auto;
+      width: 744px;
+      font-family: Source Serif Pro, serif;
+      line-height: 32px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 21px;
+    }
+    h1, h2, h3 {
+      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    }
+    h1 a, h1 a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    h1 {
+      line-height: 48px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 42px;
+      margin: 32px 0 20px;
+    }
+    h2 {
+      line-height: 32px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 26px;
+      margin: 28px 0;
+    }
+    h3 {
+      line-height: 28px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 21px;
+      margin: 24px 0;
+    }
+    p {
+      margin: 32px 0;
+    }
+    .created, .published {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 15px;
+      line-height: 15px;
+      margin: 20px 0;
+    }
+    .created + .published {
+      margin-top: -12px;
+    }
+    blockquote {
+      font-family: Georgia, Source Serif Pro, serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 36px;
+      margin: 48px 120px;
+      text-align: center;
+    }
+    a {
+      word-wrap: break-word;
+      outline: none;
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      color: #008CC9;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #8C68CB;
+    }
+    .center {
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 44px auto;
+    }
+    *:not(pre) + pre, pre:first-of-type {
+      margin-top: 32px;
+      padding-top: 32px;
+    }
+    pre:only-of-type {
+      margin: 32px 0;
+      padding: 32px;
+    }
+    pre {
+      background: #F3F6F8;
+      overflow-x: auto;
+      display: block;
+      font-size: 13px;
+      font-family: monospace;
+      line-height: 13px;
+      padding: 0 32px 32px;
+      white-space: pre;
+    }
+    a.embedded {
+      background: #F3F6F8;
+      display: block;
+      padding: 32px;
+      margin: 32px 0;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    .slate-image-embed__resize-full-width img {
+      width: 100%;
+    }
+    .series-logo {
+      width: 48px;
+      height: 48px;
+      box-sizing: border-box;
+      background-clip: content-box;
+      border: 4px solid transparent;
+      border-radius: 6px;
+      object-fit: scale-down;
+      float: left;
+    }
+    .series-title {
+      font-size: 16px;
+      font-weight: 600;
+      vertical-align: top;
+    }
+    .series-description {
+      color: rgba(0,0,0,.6);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    div {
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+    <img class="series-logo" src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY" />
+    <h3>
+      <span class="series-title">The real doctor </span>
+      </br>
+      <span class="series-description">Helping doctors rebuild their careers after immigration.</span>
+    </h3>
+    <img src="https://media.licdn.com/mediaD4E12AQHl-09C5GZ7Iw" alt="An AI-generated image of a doctor happy to save time using the Situgram-helper app." title="An AI-generated image of a doctor happy to save time using the Situgram-helper app." />
+      <h1><a href="https://www.linkedin.com/pulse/how-i-build-situgram-helper-app-saved-60-minutes-sabine-fonderson-dkyqe">How I build a Situgram-helper app and saved 60 minutes on a learning assessment.</a></h1>
+    <p class="created">Created on 2025-10-19 18:49</p>
+  <p class="published">Published on 2025-10-20 09:15</p>
+  <div><p>Last week, I stared at a 7-page PDF learning assessment and thought: </p><blockquote><p>"There has to be a better way."</p></blockquote><p>As a GP and epidemiologist working in the Netherlands, I'm used to juggling patient care, research, and continuous professional development. Like many of you reading this, I often work in my second language, which adds an extra layer of cognitive load to everything I do.</p><p>The assignment? Complete a <strong>"Situgram" assessment</strong>. This is a 15-question tool designed to identify your learning preferences.</p><p>In an effort to submit my assignment two days before the due date, I had to read a concept I've never heard of before.  Part of understanding this meant manually fillin in scores on a pdf file, calculating the totals across five categories then drawing the results on bar chart and if I made a calculation mistake doing it all over again. </p><p>For busy doctors already stretched thin, this 60-minute exercise felt like an unnecessary barrier to valuable self-insight.</p><p>So I decided to build a solution.</p><h3>The Problem: Cognitive Overload in Learning</h3><p>Here's what struck me: <strong>the tool itself was creating the exact opposite of what it was meant to assess.</strong></p><figure data-type="nativeVideoFigure"><div data-type="nativeVideo"></div><figcaption></figcaption></figure><p><strong>The Situgram measures five learning preferences:</strong></p><p>- <strong>Ka (Kunst afkijken)</strong> - Learning by observing what works</p><p>- <strong>Pa (Participeren)</strong> - Learning through dialogue</p><p>- <strong>Kv (Kennis verwerven)</strong> - Learning through acquiring knowledge</p><p>- <strong>Oe (Oefenen)</strong> - Learning through safe practice</p><p>- <strong>Od (Ontdekken)</strong> - Learning by diving into the deep end</p><p>My learning preference? <strong>Ontdekken</strong> (discover) and <strong>Kunst afkijken</strong> (observe what works). I learn best by jumping into new challenges and seeing what successful people do.</p><p>Yet here I was, being asked to slowly, methodically fill out forms, the exact <em>opposite</em> of how I learn best.</p><p>The irony was not lost on me.</p><h3>The Solution: A weekend project becomes a 5-minute app</h3><p>I spent a weekend building an app that turns this 60-minute paper exercise into a 5-minute interactive experience.</p><figure data-type="nativeVideoFigure"><div data-type="nativeVideo"></div><figcaption></figcaption></figure><p>Here’s how it cuts through the complexity and respects a busy doctor's time:</p><ol><li><p><strong>Progressive Disclosure:</strong> One question at a time. For non-native speakers, <strong>cognitive chunking</strong> is everything. Less fatigue, better focus.</p></li><li><p><strong>Visual Feedback:</strong> Color-coded answers mean you see patterns (like your dominant preference) <em>immediately</em>, without re-reading instructions.</p></li><li><p><strong>Instant, Accurate Calculation:</strong> The app automatically sums scores, applies the standardization formula, and generates an interactive bar chart. Automation equals <strong>speed and accuracy</strong>.</p></li><li><p><strong>One-Click Export:</strong> Download your results instantly for your portfolio or supervisor.</p></li></ol><figure><img data-media-urn="urn:li:digitalmediaAsset:D4E12AQFFtFzDBW_LfA" src="https://media.licdn.com/dms/image/v2/D4E12AQFFtFzDBW_LfA/article-inline_image-shrink_1500_2232/B4EZn99JgRKsAU-/0/1760902289875?e=1787184000&amp;v=beta&amp;t=NGeyTF1dCUnI8hvR1BPD5W-peqehP8KHC17nDLORW9k"><figcaption></figcaption></figure><p>I was motivated by a real problem, had a free weekend, and the help of an amazing AI-programming tool (no, not ChatGPT). My <em>Ontdekken</em> preference kicked in, and I learned by building.</p><p>If you’re a professional in the Netherlands who uses the Situgram, or are simply <strong>tired of archaic paper-based assessments</strong>, this is for you. I hope it helps you focus on the <em>insight</em>, not the <em>process</em>.</p><hr><p><strong>Want to Try It?</strong> Click on the link below, it's for free to use right now</p><p><a href="https://huggingface.co/spaces/sukihealth/sutigram-helper" target="_blank"><strong>Situgram-helper [in dutch]</strong></a></p><p>It is for free to use now. While I finetune it, I will keep you updated on the chome extension version of this app. </p><hr><p>P.S. If you're reading this and thinking "<em>I wish I could simplify [blank] in my work </em>", drop me a comment or message. You don't have to be a developer to build a solution, just be motivated.</p><p>#medtech #situgram #huggingface</p><p></p><p></p></div>
+</body>
+</html>

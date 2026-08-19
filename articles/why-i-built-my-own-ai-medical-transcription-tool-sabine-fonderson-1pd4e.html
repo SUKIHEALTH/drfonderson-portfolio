@@ -1,0 +1,153 @@
+<html>
+<head>
+  <title>Why I Built my Own AI Medical Transcription tool.</title>
+  <style>
+    body {
+      margin: 0 auto;
+      width: 744px;
+      font-family: Source Serif Pro, serif;
+      line-height: 32px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 21px;
+    }
+    h1, h2, h3 {
+      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    }
+    h1 a, h1 a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    h1 {
+      line-height: 48px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 42px;
+      margin: 32px 0 20px;
+    }
+    h2 {
+      line-height: 32px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 26px;
+      margin: 28px 0;
+    }
+    h3 {
+      line-height: 28px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 21px;
+      margin: 24px 0;
+    }
+    p {
+      margin: 32px 0;
+    }
+    .created, .published {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 15px;
+      line-height: 15px;
+      margin: 20px 0;
+    }
+    .created + .published {
+      margin-top: -12px;
+    }
+    blockquote {
+      font-family: Georgia, Source Serif Pro, serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 36px;
+      margin: 48px 120px;
+      text-align: center;
+    }
+    a {
+      word-wrap: break-word;
+      outline: none;
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      color: #008CC9;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #8C68CB;
+    }
+    .center {
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 44px auto;
+    }
+    *:not(pre) + pre, pre:first-of-type {
+      margin-top: 32px;
+      padding-top: 32px;
+    }
+    pre:only-of-type {
+      margin: 32px 0;
+      padding: 32px;
+    }
+    pre {
+      background: #F3F6F8;
+      overflow-x: auto;
+      display: block;
+      font-size: 13px;
+      font-family: monospace;
+      line-height: 13px;
+      padding: 0 32px 32px;
+      white-space: pre;
+    }
+    a.embedded {
+      background: #F3F6F8;
+      display: block;
+      padding: 32px;
+      margin: 32px 0;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    .slate-image-embed__resize-full-width img {
+      width: 100%;
+    }
+    .series-logo {
+      width: 48px;
+      height: 48px;
+      box-sizing: border-box;
+      background-clip: content-box;
+      border: 4px solid transparent;
+      border-radius: 6px;
+      object-fit: scale-down;
+      float: left;
+    }
+    .series-title {
+      font-size: 16px;
+      font-weight: 600;
+      vertical-align: top;
+    }
+    .series-description {
+      color: rgba(0,0,0,.6);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    div {
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+    <img class="series-logo" src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY" />
+    <h3>
+      <span class="series-title">The real doctor </span>
+      </br>
+      <span class="series-description">Helping doctors rebuild their careers after immigration.</span>
+    </h3>
+    <img src="https://media.licdn.com/mediaD4E12AQExwI6cY5bRyg" alt="" title="" />
+      <h1><a href="https://www.linkedin.com/pulse/why-i-built-my-own-ai-medical-transcription-tool-sabine-fonderson-1pd4e">Why I Built my Own AI Medical Transcription tool.</a></h1>
+    <p class="created">Created on 2025-09-24 22:26</p>
+  <p class="published">Published on 2025-09-25 09:00</p>
+  <div><blockquote><p><em>And why every foward-thinking medical practice should consider it.</em></p></blockquote><p>As a doctor working in a second language a transcripton tool is a gamechanger for me. Let me share with you my journey.</p><p><strong>The problem I face as a GP.</strong></p><p>Last week, I spent 3 hours after my last patient documenting consultations. Three hours.  I had 6 home visits next to over 10 consultations at the practice. That's time I could have spent with family, continuing education, or simply recharging for the next day of patient care.</p><p><strong>Does this found familiar?</strong></p><p>While solutions like #Juvoly have pioneered the medical transcription space in the Netherlands (and deserve credit for leading this transformation), I began wondering: </p><pre></pre><p>If you don't already know, I'm all about being in complete control of my schedule, and having it dictated by administrative burden is one of the most frustrating realities I face in healthcare. I need to work flexibly, especially given how healthcare keeps pushing our limited resources to the breaking point. Understanding how AI tools actually function has been a complete game-changer for my work and life, so I went ahead and created another tool that actually works.</p><p><strong>The "Why Not?" Moment</strong></p><p>As a physician who's always been curious about technology, I asked myself a simple question: <em>"If I can diagnose complex medical conditions, why can't I build a tool that understands my specific practice needs?"</em></p><p>So I did. Using OpenAI's APIs and some creative problem-solving, I built a custom medical transcription system that:</p><ul><li><p><strong>Transcribes Dutch/English consultations in real-time</strong></p></li></ul><figure data-type="nativeVideoFigure"><div data-type="nativeVideo"></div><figcaption></figcaption></figure><ul><li><p><strong>Generates SOAP notes automatically</strong></p></li></ul><figure data-type="nativeVideoFigure"><div data-type="nativeVideo"></div><figcaption></figcaption></figure><ul><li><p><strong>Creates safety net suggestions for every patient</strong></p></li><li><p><strong>Translates between Dutch and English on-demand</strong></p></li></ul><figure data-type="nativeVideoFigure"><div data-type="nativeVideo"></div><figcaption></figcaption></figure><ul><li><p><em>Costs a fraction of commercial solutions</em></p></li><li><p><strong>Gives me complete control over my data and workflow</strong></p></li></ul><p>See the complete video below ; in less than 2 minutes the entire medical information is summarised as a SOAP entry and there is a nice added feature, it gives you safety net information that you can share with the patient. </p><p>Look, this isn't about replacing me, it's about ensuring complete documentation in patient files. I too forget to mention things sometimes and having that information captured is essential for future visits and for when team members need to step in. Bottom line: I'm human, not perfect, and my tools don't pretend to be either.</p><p><strong>The Revelation: It's Not About Replacing Anyone</strong></p><p>This isn't about competing with established players or claiming superiority. Juvoly and similar platforms serve many practices excellently. This is about physician empowerment and practice autonomy.</p><p><strong>Here's what I learned:</strong></p><ul><li><p><strong>Control Matters</strong>: When you understand your tools, you can adapt them to your exact needs</p></li><li><p><strong>Cost Efficiency</strong>: My solution costs ~€20/month vs. €200+ for commercial platforms</p></li><li><p><strong>Customization</strong>: I can modify it for pediatrics, internal medicine, or any specialty</p></li><li><p><strong>Data Sovereignty</strong>: My patient data stays exactly where it needs to be, safe and in no cloud space</p></li><li><p><strong>Learning</strong>: Understanding AI makes me a better doctor in an AI-supported environment</p></li></ul><p><strong>The Reality Check</strong></p><p>Let me be crystal clear: <em>This isn't for every consultation or every doctor.</em></p><p>Some days, the AI transcription misses nuances. Complex multilingual consultations sometimes need manual review. Emergency situations require human focus, not technology.</p><p>But for 70-80% of my routine consultations? It's transformative.</p><p><strong>The Bigger Picture: Physician-Led Innovation</strong></p><p>We're at an inflection point in healthcare technology. We can either:</p><p><strong>Option A</strong>: Wait for tech companies to solve our problems (and pay premium prices) </p><p><strong>Option B</strong>: Learn, adapt, and build solutions that truly serve our practice needs</p><p>I chose Option B. Not because I'm anti-commercial solutions, but because I believe doctors should understand and shape the AI tools we use daily.</p><p><strong>What This Means for Your Practice</strong></p><p>Whether you use tools like Juvoly, build your own solution, or stick with traditional methods, ask yourself:</p><ol><li><p>Do you understand how your AI tools make decisions? </p></li><li><p>Can you adapt them when your practice needs change? </p></li><li><p>Are you prepared for the next wave of AI healthcare tools?</p></li><li><p>What would 2-3 hours of saved documentation time mean for your work-life balance?</p></li></ol><p><strong>The Future We're Building</strong></p><p>I envision a healthcare system where:</p><ul><li><p>Doctors are AI-literate collaborators, not passive users</p></li><li><p>Practices have choice and control over their technology stack</p></li><li><p>Innovation comes from the clinic floor, not just boardrooms</p></li><li><p>Technology amplifies our expertise rather than replacing our judgment</p></li></ul><p><strong>My Challenge to Fellow Physicians</strong></p><p>You don't need to become a programmer. But consider:</p><ul><li><p>Taking one AI course this year</p></li><li><p>Understanding how your current tools work</p></li><li><p>Asking harder questions of your technology vendors</p></li><li><p>Exploring what's possible when doctors lead innovation</p></li></ul><p>The future of medical practice belongs to physicians who understand their tools deeply enough to shape them.</p><p><strong>What would you build if you could?</strong></p><hr><p><em>P.S. I've documented the entire process and made the code open-source. Because the best innovations in medicine have always been shared, not hoarded.</em></p><p><em>If you want to have this for your practice, send me a DM and I will walk you through the entire process.</em></p><p><em>#AItools #AIinmedicine #dutchhealthcare #innovation #Medtech</em></p></div>
+</body>
+</html>

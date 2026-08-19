@@ -1,0 +1,153 @@
+<html>
+<head>
+  <title>How I Turned a Clinical Pain Point Into a Working Product in a Weekend.</title>
+  <style>
+    body {
+      margin: 0 auto;
+      width: 744px;
+      font-family: Source Serif Pro, serif;
+      line-height: 32px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 21px;
+    }
+    h1, h2, h3 {
+      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    }
+    h1 a, h1 a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    h1 {
+      line-height: 48px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 42px;
+      margin: 32px 0 20px;
+    }
+    h2 {
+      line-height: 32px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 26px;
+      margin: 28px 0;
+    }
+    h3 {
+      line-height: 28px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 21px;
+      margin: 24px 0;
+    }
+    p {
+      margin: 32px 0;
+    }
+    .created, .published {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 15px;
+      line-height: 15px;
+      margin: 20px 0;
+    }
+    .created + .published {
+      margin-top: -12px;
+    }
+    blockquote {
+      font-family: Georgia, Source Serif Pro, serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 36px;
+      margin: 48px 120px;
+      text-align: center;
+    }
+    a {
+      word-wrap: break-word;
+      outline: none;
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      color: #008CC9;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #8C68CB;
+    }
+    .center {
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 44px auto;
+    }
+    *:not(pre) + pre, pre:first-of-type {
+      margin-top: 32px;
+      padding-top: 32px;
+    }
+    pre:only-of-type {
+      margin: 32px 0;
+      padding: 32px;
+    }
+    pre {
+      background: #F3F6F8;
+      overflow-x: auto;
+      display: block;
+      font-size: 13px;
+      font-family: monospace;
+      line-height: 13px;
+      padding: 0 32px 32px;
+      white-space: pre;
+    }
+    a.embedded {
+      background: #F3F6F8;
+      display: block;
+      padding: 32px;
+      margin: 32px 0;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    .slate-image-embed__resize-full-width img {
+      width: 100%;
+    }
+    .series-logo {
+      width: 48px;
+      height: 48px;
+      box-sizing: border-box;
+      background-clip: content-box;
+      border: 4px solid transparent;
+      border-radius: 6px;
+      object-fit: scale-down;
+      float: left;
+    }
+    .series-title {
+      font-size: 16px;
+      font-weight: 600;
+      vertical-align: top;
+    }
+    .series-description {
+      color: rgba(0,0,0,.6);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    div {
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+    <img class="series-logo" src="https://media.licdn.com/dms/image/v2/D4E12AQF5-uPOh5MnSg/series-logo_image-shrink_300_300/B4EZXpa7nlGwAQ-/0/1743377907319?e=1787788800&v=beta&t=6oOM6wl1XT1GGTgz-XR12MDGlxmCtDGWUpazv0L5oqY" />
+    <h3>
+      <span class="series-title">The real doctor </span>
+      </br>
+      <span class="series-description">Helping doctors rebuild their careers after immigration.</span>
+    </h3>
+    <img src="https://media.licdn.com/mediaD4E12AQHARMnCgGfV1A" alt="An AI generated image of a doctor who looks like me, it's not me, but she is super happy her AI DX Helper chrome extension works." title="An AI generated image of a doctor who looks like me, it's not me, but she is super happy her AI DX Helper chrome extension works." />
+      <h1><a href="https://www.linkedin.com/pulse/how-i-turned-clinical-pain-point-working-product-sabine-fonderson-hqjee">How I Turned a Clinical Pain Point Into a Working Product in a Weekend.</a></h1>
+    <p class="created">Created on 2025-08-15 19:51</p>
+  <p class="published">Published on 2025-08-18 09:15</p>
+  <div><p>It is not a secret by now. I work as a doctor in a second language and after 30 physical consultations, 20 phone calls and over 30 lab results I need to process and make a plan, the day is done.</p><p>I am sometimes left wondering </p><blockquote><p>Did I miss anything today?</p></blockquote><h3>The Problem</h3><p>As a GP, clinic owner, and parent, I understand how heavy the mental load can be in medicine today. The administrative burden is high. The tools we’re given often create more work than they remove. For doctors working in a second language, like myself, the cognitive fatigue is even greater.</p><p>Too many systems are built around compliance and billing and  not care, creativity, or the clinician’s experience.</p><h3>The Pivot</h3><p>Rather than wait for perfect EMR integration or invest months or thousand of euro's into building full web platforms, I decided to take a different route: one simple, functional, doctor-designed tool at a time.</p><p>I chose Chrome extensions as the format because they are fast to build, simple to use, and perfectly suited to test what doctors actually need at the point of care.</p><h3>Launching a new tool: AI Differential Diagnosis Helper</h3><p>The first extension in this series of 101 google chrome extensions is the AI Differential Diagnosis Helper. It allows doctors to enter basic patient data and instantly generate a list of <strong><em>likely differential diagnoses</em></strong>, each with a confidence score and red flag considerations. It runs entirely in the browser and uses the doctor’s or practice's own OpenAI API key, which is stored locally and never shared.</p><p>It's not meant to replace clinical reasoning, in fact it's meant to support it, especially in moments of cognitive overload or when working alone.</p><figure data-type="nativeVideoFigure"><div data-type="nativeVideo"></div><figcaption></figcaption></figure><h3>The Vision: 101 Tools, One Purpose</h3><p>This is the beginning of a collection of 101 practical Chrome extensions that will serve as microtools for clinicians. Each tool will solve a specific, well-defined problem that doctors face every day, from time tracking and note generation to patient education and safety-netting.</p><h3>Why This Matters</h3><p>This is also a way to ensure my clinic and the larger platform I'm building can grow sustainably. Doctors shouldn’t need to become programmers to improve their digital environments. But we also shouldn’t have to accept tools that don’t work for us.</p><p>With each new tool, I’m testing what happens when doctors build for doctors. And I hope to inspire others to do the same.</p><h3>If you're a clinician, technologist, or innovator:</h3><ul><li><p>You can stay here and follow the full 101 extension challenge as it unfolds</p></li><li><p>You can build your own, I’ll be sharing templates and workflows soon</p></li><li><p>Once google approves the extension, I will post the link to this article so you can use it for yourself.<strong> You will need an API key for it to work the way it is supposed to.</strong></p></li><li><p><strong>Don't have an API key - let me know in the comments and I'll be happy to show you how to get this.</strong></p></li></ul><p>This isn’t about scaling fast. It’s about building responsibly, creatively, and transparently. One tool at a time.</p><p></p></div>
+</body>
+</html>
