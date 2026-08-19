@@ -1,0 +1,17 @@
+{
+  "name": "drfonderson-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Modern portfolio website for Dr. Sabine Fonderson",
+  "scripts": {
+    "build": "echo 'Static site ready for deployment'"
+  },
+  "keywords": [
+    "portfolio",
+    "healthcare",
+    "ai",
+    "medicine",
+    "speaker"
+  ],
+  "author": "Dr. Sabine Fonderson"
+}
